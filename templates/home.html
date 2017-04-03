@@ -1,0 +1,517 @@
+﻿﻿<html lang="en-us" class=" js cssanimations">
+
+<head>
+
+
+
+    <meta charset="utf-8">
+    <title>BikesBook</title>
+    <meta name="description" content="The description should optimally be between 150-160 characters.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dawood">
+    {% load staticfiles %}
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon-retina-ipad.png' %}">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon-retina-iphone.png' %}">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon-standard-ipad.png' %}">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon-standard-iphone.png' %}' %}">
+
+    <!-- ============== Resources style ============== -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-cons.css' %}">
+
+    <!-- Modernizr runs quickly on page load to detect features -->
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+</head>
+
+<body class="">
+
+    <!-- Page preloader -->
+    <div id="loading" class="">
+        <div id="preloader" class="">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Star Wars Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Overlay -->
+    <div class="global-overlay">
+        <div class="overlay skew-part"></div>
+    </div>
+    <!-- START - Home/Left Part -->
+    <section id="left-side">
+
+        <!-- Your logo -->
+        <a href="index.html">
+            <img src="{% static 'img/logo.png' %}" width="300px" alt="" class="img-responsive brand-logo">
+        </a>
+
+        <div class="content">
+
+            <h1 class="text-intro animated-middle fadeInUp">Hey Bikers!<br>
+					We're bikesbook.bike...</h1>
+            {% include "messages_display.html" %}
+            <h2 class="text-intro animated-middle fadeInUp">Perfect and awesome community to to share your feature biking activities.<br>
+					Hooking audience attention is all in the opener.</h2>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="about" class="light-btn text-intro animated-middle fadeInUp">About US</a>
+                    </li>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="contact" class="action-btn text-intro animated-middle fadeInUp">Contact Us!</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="groups" class="actionR-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-users"> </i>&nbsp; Groups</a>
+                    </li>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="free-rides" class="actionR-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-motorcycle"> </i>&nbsp; Free Rides</a>
+                    </li>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="app-screens" class="actionR-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-desktop"> </i>&nbsp; App Screens</a>
+                    </li>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="mobileapp" class="actionR-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-tablet"> </i>&nbsp; Mobile App</a>
+                    </li>
+                    <li>
+                        <a href="#" id="open-more-info" data-target="subscribe" class="actionR-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-pencil-square-o"> </i>&nbsp; Subscribe</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+
+            <a href="https://www.facebook.com/bikesbook/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/bikesbook2016"><i class="fa fa-twitter"></i></a>
+            <!-- <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a> -->
+
+        </div>
+
+    </section>
+    <!-- END - Home/Left Part -->
+
+    <!-- START - More Informations/Right Part Login -->
+
+    <section id="right-side-login" class="" >
+
+		<div class="content text-center" >
+
+        <div class="module form-module">
+            <!-- <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+                <div class="tooltip">Click Me</div>
+            </div> -->
+            <div > <br>
+                <h2>STAY TUNED, We will arrive soon</h2>
+				<img class="img-responsive" src="{% static 'img/BB_Screens_android.png'%} "  alt="" align = "center">
+
+            </div>
+            <div class="form" style="display: none;">
+                <h2>Create an account</h2>
+                <form>
+                    <input type="text" placeholder="Username">
+                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email Address">
+                    <input type="tel" placeholder="Phone Number">
+                    <button>Register</button>
+                    <br />
+                    <button class="toggle"><i class="fa fa-sign-in"> </i>&nbsp; Login</button>
+                </form>
+            </div>
+            <!-- <div class="cta"><a href="http://bikersbook.bike">Forgot your password?</a></div> -->
+        </div>
+            </div>
+    </section>
+
+    <section id="right-side" class="hide-right">
+		<!-- about Content -->
+        <div id="about" class="content">
+
+            <h3 class="uppercase letter-spacing-10">WE ARE <span> BIKESBOOK </span></h3>
+            <p>
+            bikesbook is a bikers network for bikers by bikers. You can find all bikers from around the world for both motorcycles and bicycles. Create your group, share and interact with bikers. Use our mobile App to manage your riding activities and build your riding history in real-time and many more.
+            </p>
+            <span class="separator"></span>
+
+            <h3 class="uppercase letter-spacing-10">Why <span> .BIKES? </span></h3>
+            <p>
+            bike captures our lifestyle. We are bikers. We are unique, trendsetters that love life and live it to the fullest.
+            </p>
+            <span class="separator"></span>
+
+        </div>
+        <!-- /. about Content -->
+
+        <!-- contact Content -->
+        <div id="contact" class="content">
+
+            <h3 class="uppercase letter-spacing-10">Get in touch with <span> BIKESBOOK </span>!</h3>
+
+            <p>Wanna say hello? Or have any Feedback for us?</p>
+
+            <!-- START - Contact Form -->
+            <form id="contact-form" name="contact-form" method="POST" data-name="Contact Form" action="{% url 'contact' %}"> {% csrf_token %}
+
+                <div class="row">
+
+                    <!-- Full name -->
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form form-control" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" name="name" data-name="Name" required>
+                        </div>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="email" id="email" class="form form-control" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" name="email" data-name="Email Address" required>
+                        </div>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <div class="form-group">
+                            <input type="text" id="subject" class="form form-control" placeholder="Write the subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write the subject'" name="subject" data-name="Subject" required>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="col-xs-12 col-sm-12 col-lg-12 no-padding">
+                        <div class="form-group">
+                            <textarea id="text-area" class="form textarea form-control" placeholder="Your message here... 20 characters Min." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your message here... 20 characters Min.'" name="message" data-name="Text Area" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Button submit -->
+                <button type="submit" id="valid-form" class="btn btn-color">Send my Message</button>
+
+            </form>
+            <!-- END - Contact Form -->
+            <span class="separator"></span>
+
+            <!-- Answer for the contact form is displayed in the next div, do not remove it. -->
+            <div id="block-answer">
+
+                <div id="answer"></div>
+
+            </div>
+
+
+        </div>
+        <!-- /. contact Content -->
+
+        <!-- groups Content -->
+		<div id="groups" class="content">
+		<h3 class="uppercase letter-spacing-10"><i class="fa fa-users"> </i>&nbsp;<span> Groups </span></h3>
+            <p>
+            Helps riders organize and archive their riding activities. Come build your small community, discuss with riders interesting topics, and record your riding activities as a historical archiving for your group.
+            <br /><br />
+            Group features in our bikers network allows you to:
+            <br /><br />
+            <ul>
+            	<li>Create and manage your group activities and posts.</li>
+            	<li>Create and arrange your riding activities with our Mobile app.</li>
+            	<li>Track and share all upcoming riding events.</li>
+            	<li>Archive your riding activities with photos and videos.</li>
+            </ul>
+            <br />
+			Start by registering in bikesbook.bike
+			<br /><br />
+			<a href="#" id="open-more-info" data-target="subscribe" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-pencil-square-o"> </i>&nbsp; Join the revolution</a>
+            </p>
+            <span class="separator"></span>
+		</div>
+		<!-- /. groups Content -->
+
+		<!-- free rides Content -->
+		<div id="free-rides" class="content">
+		<h3 class="uppercase letter-spacing-10"><i class="fa fa-motorcycle"> </i>&nbsp;<span> Free Rides </span></h3>
+            <p>
+            	If you do riding alone, don’t worry. Bikesbook is your riding partner. Start your free rides, get full statistical information about your ride, and build your riding history. <br /><br />
+  				<br /><br />
+			<a href="#" id="open-more-info" data-target="subscribe" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-pencil-square-o"> </i>&nbsp; Join the revolution</a>
+            </p>
+            <span class="separator"></span>
+		</div>
+		<!-- /. stores Content -->
+
+		<!-- app screens Content -->
+		<div id="app-screens" class="content">
+		<h3 class="uppercase letter-spacing-10"><i class="fa fa-desktop"> </i>&nbsp;<span> App Screens </span></h3>
+            <p>
+            	We would like to share some screens from our App with the bikers.<br /><br />
+                <div class="container app-screens-img">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 imgs">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <img class="img-responsive img-thumbnail" src="{% static 'img/screens/1.jpg' %} ">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <img class="img-responsive img-thumbnail" src="{% static 'img/screens/2.jpg' %} ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 imgs">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <img class="img-responsive img-thumbnail" src="{% static 'img/screens/3.jpg' %} ">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <img class="img-responsive img-thumbnail" src="{% static 'img/screens/4.jpg' %} ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <br /><br />
+				<a href="#" id="open-more-info" data-target="subscribe" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-pencil-square-o"> </i>&nbsp; Join the revolution</a>
+            </p>
+            <span class="separator"></span>
+		</div>
+		<!-- /. timeline Content -->
+
+		<!-- mobileapp Content -->
+		<div id="mobileapp" class="content">
+		<h3 class="uppercase letter-spacing-10"><i class="fa fa-mobile"> </i>&nbsp;<span> Mobile App </span></h3>
+            <p>
+            	Bikesbook is the first global rider’s phone app.Your dreams of real-time riding, tracking, and info publishing in one spot.<br /><br />
+            	<ul>
+            	<li>Organizing all Riding activities.</li>
+            	<li>Real time riding info.</li>
+            	<li>Sharing and archiving riding history.</li>
+            	<li>SOS emergency calls.</li>
+            </ul>
+            <br />
+            So what are you waiting for? Come see what Bikesbook is all about!<br /><br />
+           <a href="#" id="open-more-info" data-target="subscribe" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-pencil-square-o"> </i>&nbsp; Join the revolution</a>
+           </br>
+           </br>
+            <a href="#" id="" data-target="" class="text-intro animated-middle fadeInUp"><img src="{% static 'img/applestore.png' %}" /></a>
+            <!-- <a href="#" id="open-more-info" data-target="register" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-apple"> </i>&nbsp; Download From Apple Store</a>-->
+
+
+            <a href="#" id="" data-target="" class="text-intro animated-middle fadeInUp"><img src="{% static 'img/playstore.png' %}" /></a>
+            <!-- <a href="#" id="open-more-info" data-target="register" class="action-btn sub-btn text-intro animated-middle fadeInUp"><i class="fa fa-android"> </i>&nbsp; Download From Google Play</a>-->
+
+
+            </p>
+            <span class="separator"></span>
+		</div>
+		<!-- /. mobileapp Content -->
+
+		<!-- subscribe Content -->
+        <div id="subscribe" class="content">
+
+            <h3 class="uppercase letter-spacing-10"><i class="fa fa-pencil-square-o"> </i>&nbsp; <span> subscribe now ! </span></h3>
+
+            <p>Wanna be a part of our community?<br /><br />
+                We’re working day and night to be live as soon as possible …. Stay tuned!!!<br /><br />
+                Please subscribe to our newsletter to be updated with everything about bikesbook<br /><br />
+            </p>
+
+            <!-- START - Contact Form -->
+            <form id="contact-form" name="contact-form2" method="POST" data-name="Contact Form2" action="{% url 'subscribe' %}"> {% csrf_token %}
+
+                <div class="row">
+
+                    <!-- Full name -->
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="text" id="full_name" class="form form-control" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" name="full_name" data-name="fName" required>
+                        </div>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="email" id="email" class="form form-control" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" name="email" data-name="Email Address" required>
+                        </div>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <div class="form-group">
+                            {{form.country}}
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Button submit -->
+                <button type="submit" id="valid-form" class="btn btn-color">Subscribe </button>
+
+            </form>
+            <!-- END - Contact Form -->
+
+            <!-- Answer for the contact form is displayed in the next div, do not remove it. -->
+            <div id="block-answer">
+
+                <div id="answer"></div>
+
+            </div>
+        </div>
+        <!-- /. register Content -->
+
+        <!-- <footer>
+            <p>Copyright © 2016 www.bikesbook.bike</p>
+        </footer> -->
+
+    </section>
+    <!-- START - More Informations/Right Part -->
+
+    <!-- Button Cross to close the More Informations/Right Part -->
+    <button id="close-more-info" class="hide-close"><i class="icon ion-ios-close-outline"></i></button>
+
+    <!-- Root element of PhotoSwipe, the gallery. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe.
+	        	It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides.
+		            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+		            Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+		            </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+		            </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /. Root element of PhotoSwipe. Must have class pswp. -->
+
+<footer class="main-footer"><p>Copyright © 2016 www.bikesbook.bike</p></footer>
+
+    <!-- Select Country In Subscribe -->
+    <script type="text/javascript">
+        function changeMe(sel)
+        {
+          sel.style.color = "#000";
+        }
+    </script>
+
+    <!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
+    <!-- ********** Resources jQuery ********** -->
+    <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
+
+    <!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easings.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Accelerated JavaScript animation JS file -->
+    <script src="{% static 'js/velocity.min.js' %}"></script>
+
+    <!-- Accelerated JavaScript animation UI JS file -->
+    <script src="{% static 'js/velocity.ui.min.js' %}"></script>
+
+    <!-- Newsletter plugin -->
+    <script src="{% static 'js/notifyMe.js' %}"></script>
+
+    <!-- Contact form plugin -->
+    <!--<script src="{% static 'js/contact-me.js' %}"></script>-->
+
+    <!-- constellation plugin -->
+    <script src="{% static 'js/constellation.js' %}"></script>
+
+    <!-- Scroll plugin -->
+    <script src="{% static 'js/jquery.mousewheel.js' %}"></script>
+
+    <!-- Custom Scrollbar plugin -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.js' %}"></script>
+
+    <!-- Popup Newsletter Form -->
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/dialogFx.js' %}"></script>
+
+    <!-- PhotoSwipe Core JS file -->
+    <script src="{% static 'js/photoswipe.js' %}"></script>
+
+    <!-- PhotoSwipe UI JS file -->
+    <script src="{% static 'js/photoswipe-ui-default.js' %}"></script>
+
+    <!-- bootstrap-select -->
+    <!--<script src="{% static 'js/bootstrap-select.js' %}"></script>-->
+
+    <!-- Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!--[if lt IE 10]><script type="text/javascript" src="{% static 'js/placeholder.js' %}"></script><![endif]-->
+
+    </div>
+</body>
+
+</html>

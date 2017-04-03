@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+<body {% block body-class %} class="star-background" {% endblock %}>
+    {% block pre-loader %}
+    <!-- PRELOADER -->
+    <div id="preloadcontainer">
+          <div id="preload-content">
+               <div class="spinner">
+                  <i class="fa fa-spinner fa-spin"></i>
+                  <div class="cube1"></div>
+                  <div class="cube2"></div>
+                  <div class="loadingtext">Loading...</div>
+                </div>
+          </div>
+      </div>
+    <!-- /PRELOADER -->
+    {% endblock %}
+
+    {% block pageoverlay %}
+    <div class="pageoverlay"></div>
+
+    <!-- PARALLAX BACKGROUND -->
+    <div class="star morestars starbackground"></div>
+
+    <div class="parallax-wallpaper" data-parallaxify-range="50"></div>
+    {% endblock %}
+    {% block content %}
+        <div class="row">
+            <div class="empty-space">&nbsp;</div>
+        </div>
+		 <div class="row">
+            <div class="empty-space">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="empty-space">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 count-down animationonstart animated" data-animation="fadeInDown" data-animation-delay="1200">
+                <!--start countdown timer-->
+                <div id="countdown" class="rotatecont">
+                    <ul class="countdown">
+                        <li class="countdowndays">
+                            <span class="days">00</span>
+                            <p class="countlabel days_ref">days</p>
+                            <p class="leftlabel">L</p>
+                        </li>
+                        <li class="countdownhrs">
+                            <span class="hours">00</span>
+                            <p class="countlabel hours_ref">hours</p>
+                            <p class="leftlabel">E</p>
+                        </li>
+                        <li class="countdownmin">
+                            <span class="minutes">00</span>
+                            <p class="countlabel minutes_ref">minutes</p>
+                            <p class="leftlabel">F</p>
+                        </li>
+                        <li class="countdownsec">
+                            <span class="seconds">00</span>
+                            <p class="countlabel seconds_ref">seconds</p>
+                            <p class="leftlabel">T</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--end countdown timer-->
+            </div>
+
+            <div class="col-lg-8 animationonstart animated" data-animation="fadeInRight" data-animation-delay="1200">
+                <!-- START HOME SECTION -->
+                <!-- START CONTAINER -->
+
+                    <div class="slider-container">
+                        <div id="owl-demo" class="owl-carousel custom-animations">
+
+                            <!-- START INTRO -->
+                            <div id="intro-content">
+                            <h2 class="color-white uppercase letter-spacing-10">We are <span>Bikesbook</span></h2>
+                                <p class="color-off-white">bikesbook is a bikers network for bikers by bikers. You can find all bikers from around the world for both motorcycles and bicycles. Build your store, create your group, manage your products, and interact with bikers.
+                                Use our mobile app to manage your riding activities and build your riding history in real-time.</p>
+                                <h2 class="color-white uppercase letter-spacing-10">WHY <span>.bike?</span></h2>
+
+                                <p class="color-off-white">.bike captures our lifestyle. We are bikers. We are unique, trendsetters that love life and live it to the fullest.</p>
+                                <h2 class="color-white uppercase letter-spacing-10">Coming <span>Very Soon!! </span></h2>
+
+                                <p class="color-off-white">Our website is <span>under construction.</span> Subscribe to follow our updates and be apart of this bikers movement!  <span class="highlight"><strong>Join our newsletter! We will notify you when our site is ready.</strong></span>&nbsp; <i class="fa fa-ban"></i> &nbsp;<em>Spam is not our friend!</em></p>
+                                <!-- Subscribe Form -->
+                                <div id="form">
+                                    <div class="form-container">
+                                        <div class="page-section" id="signup">
+                                            <form action="#" id="subscribe_form" class="subscriptionForm subscribe-form inview" data-inview-animation="fadeInUp">
+                                                <input type="text" id="email" name="email" class="emailfield" placeholder="Enter your email address"/>
+                                                <input type="submit" id="subscribesubmit" class="button main-color-hover smooth"  value="Subscribe"/>
+                                            </form>
+                                            <div class="subscriberesponse"></div><div class="subscribesuccess"></div>
+                                        </div> <!--end page section -->
+                                    </div> <!-- end form container -->
+                                </div> <!-- end Subscribe Form -->
+                            </div> <!-- END INTRO -->
+
+
+
+                        </div>
+                    </div>
+
+                <!-- END CONTAINER -->
+                <!-- END HOME SECTION -->
+            </div>
+
+        </div>
+    {% endblock %}
+</body>

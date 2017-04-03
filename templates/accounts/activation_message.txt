@@ -1,0 +1,9 @@
+Hello {{ email }},
+
+Please activate your account here:
+
+{{ activation_url }}
+
+Thank you!
+
+-Bikes Book

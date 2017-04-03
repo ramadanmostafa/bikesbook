@@ -1,0 +1,13 @@
+Hello {{ user }},
+
+You're receiving this email because you requested
+a password reset for your user account at Bikes Book
+Please go to the following page to get new password
+
+{{ reset_url }}
+
+Thank you!
+
+* Note That this link is available for 12 hours only
+
+-Bikes Book

@@ -1,0 +1,742 @@
+{% load staticfiles %}
+<!doctype html>
+<!--[if lte IE 9]> <html class="lte-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no"/>
+
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon-32x32.png' %}" sizes="32x32">
+
+    <title>Bikesbook</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" media="all">
+
+    <!-- uikit -->
+    <link rel="stylesheet" href="{% static 'bower_components/uikit/css/uikit.almost-flat.min.css' %}" media="all">
+
+    <!-- altair landing page -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" media="all">
+
+    <!-- matchMedia polyfill for testing media queries in JS -->
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="{% static 'bower_components/matchMedia/matchMedia.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bower_components/matchMedia/matchMedia.addListener.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="sec-home">
+    <!-- navigation -->
+    <header id="header_main">
+        <nav class="uk-navbar">
+            <div class="uk-container uk-container-center header-menu">
+                <a href="'#" class="uk-float-left" id="mobile_navigation_toggle" data-uk-offcanvas="{target:'#mobile_navigation'}"><i class="material-icons">&#xE5D2;</i></a>
+                <a href="/" class="uk-navbar-brand">
+                    <img src="{% static 'assets/img/logo.png' %}" alt="logo" width="150" height="45">
+                </a>
+                <div class="uk-navbar-flip">
+                    <ul class="uk-navbar-nav" id="main_navigation">
+                        <li>
+                            <a href="#sec-about">
+                                About US
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sec-gallery">
+                                APP SCREENS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sec-faq">
+                                Faq
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="#sec-contact">
+                                Contact
+                            </a>
+                        </li>
+                        <li class="subscribe">
+                            <a href="#sec-subscribe"><button class="md-btn uk-navbar-flip header_cta uk-margin-left btn-custom-light">Subscribe</button>
+                            </a>
+                        </li>
+                        <li class="google-play">
+                            <a href="#sec-home">
+                                <img src="{% static 'assets/img/google-play-badge.png' %}" alt="google-play-download" width="117" height="37">
+                            </a>
+                        </li>
+                        <li class="home-page">
+                            <a href="#sec-home">
+                                <i class="fa fa-home fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="mobile_navigation" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar">
+            <ul>
+                <li>
+                    <a href="{% static '#sec-home" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-home fa-lg"></i></span>
+                        <span class="menu_title" style="visibility: hidden;">Home</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-about" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-list" aria-hidden="true"></i></span>
+                        <span class="menu_title">About US</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-gallery" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                        <span class="menu_title">APP SCREENS</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-faq" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                        <span class="menu_title">Faq</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-news" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-pencil-square" aria-hidden="true"></i></span>
+                        <span class="menu_title">Our News</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-kickstarter" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><img src="{% static 'assets/img/support.png' %}" alt="" width="17" height="17"></span>
+                        <span class="menu_title">On Kickstarter</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-contact" data-uk-smooth-scroll="{offset: 48}">
+                        <span class="menu_icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <span class="menu_title">Contact</span>
+                    </a>
+                </li>
+                <hr class="uk-grid-divider">
+                <li>
+                    <a href="{% static '#sec-subscribe" data-uk-smooth-scroll="{offset: 48}">
+                        <button class="md-btn uk-navbar-flip header_cta btn-custom-light">Subscribe</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% static '#" data-uk-smooth-scroll="{offset: 48}">
+                        <img src="{% static 'assets/img/google-play-badge.png' %}" alt="google-play-download" width="117" height="37" class="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% include "messages_display.html" %}
+    <section class="section section_large" id="sec-about">
+        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-150}">
+            <div class="uk-grid">
+                <div class="uk-width-large-3-5 uk-container-center uk-text-center">
+                    <h2 class="heading_b">
+                        ABOUT<span class="title-part-color">US</span>
+                        <span class="sub-heading">
+                            Hey Bikers! … We're bikesbook.bike <br><br>
+                            <p class="uk-text-left">
+                                Bikesbook is the first global rider’s smart phone application.Your dreams of real-time riding, tracking, and info publishing in one spot.
+                            </p>
+                            <p class="uk-text-left">
+                                Perfect and awesome community to share your feature biking events and activities.
+                            </p>
+                            <p class="uk-text-left">
+                                Hooking audience attention is all in the opener.
+                            </p>
+                            <p class="uk-text-left">
+                                So what are you waiting for? Come see what Bikesbook is all about!
+                            </p>
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="uk-grid uk-grid-width-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-5">
+                <div class="item">
+                    <div class="uk-text-center uk-margin-bottom">
+                        <i class="fa fa-check-square-o fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="heading_c uk-text-center">Garage</h3>
+                    <p class="uk-text-left">Build your garage, add as many as you have from motorcycles and bicycles that you are using in your daily and weekly rides.</p>
+                </div>
+                <div class="item">
+                    <div class="uk-text-center uk-margin-bottom">
+                        <i class="fa fa-motorcycle fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="heading_c uk-text-center">Free rides</h3>
+                    <p class="uk-text-left">Starting your individual ride with Bikesbook App is the only way to record, track, share and archive the riding activities in order to build your historical record.</p>
+                </div>
+                <div class="item">
+                    <div class="uk-text-center uk-margin-bottom">
+                        <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="heading_c uk-text-center">Group riding</h3>
+                    <p class="uk-text-left">Bikesbook App is the first and only App available in the market that gives the ability to motorcycles or bicycles groups to create, manage, organize and archive all their riding events.</p>
+                </div>
+                <div class="item">
+                    <div class="uk-text-center uk-margin-bottom">
+                        <i class="fa fa-life-ring fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="heading_c uk-text-center">Emergency</h3>
+                    <p class="uk-text-left">You are in a ride, got some troubles, don’t worry about that, our emergency call unique feature will enable you to ask the riders around you to get helped.</p>
+                </div>
+                <div class="item">
+                    <div class="uk-text-center uk-margin-bottom">
+                        <i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="heading_c uk-text-center">Stores</h3>
+                    <p class="uk-text-left">Based on your store nature (Individual – Dealer – Physical store – Agency) you will be able to offer products and services directly to our biker community. This is done via traditional list price or Auction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section_gallery md-bg-blue-grey-50" id="sec-gallery">
+        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-150}">
+            <h2 class="heading_b uk-margin-medium-bottom uk-container-center uk-text-center">
+                APP <span class="title-part-color">SCREENS</span>
+                <span class="sub-heading">We would like to share some screens from our App with the bikers.</span>
+            </h2>
+            <div data-uk-slider>
+                <div class="uk-slider-container">
+                    <ul class="uk-grid uk-grid-small uk-slider uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4">
+                        <li>
+                            <div class="md-card">
+                                <div class="md-card-content padding-reset"><img src="{% static 'assets/img/gallery/1.jpg' %}" alt=""></div>
+                                <div class="md-card-footer">
+                                    <h4 class="md-card-footer-head">Registration</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="md-card">
+                                <div class="md-card-content padding-reset"><img src="{% static 'assets/img/gallery/2.jpg' %}" alt=""></div>
+                                <div class="md-card-footer">
+                                    <h4 class="md-card-footer-head">Main Menu</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="md-card">
+                                <div class="md-card-content padding-reset"><img src="{% static 'assets/img/gallery/3.jpg' %}" alt=""></div>
+                                <div class="md-card-footer">
+                                    <h4 class="md-card-footer-head">In a Ride</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="md-card">
+                                <div class="md-card-content padding-reset"><img src="{% static 'assets/img/gallery/4.jpg' %}" alt=""></div>
+                                <div class="md-card-footer">
+                                    <h4 class="md-card-footer-head">Ride Summary</h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slide_navigation">
+                    <a href="{% static '" class="uk-slidenav uk-slidenav-previous" data-uk-slider-item="previous"></a>
+                    <a href="{% static '" class="uk-slidenav uk-slidenav-next" data-uk-slider-item="next"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="sec-faq">
+        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-120}">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-large-1-3">
+                    <h3 class="heading_b">FAQ</h3>
+                    <p>We answer all common questions that bikers may ask about Bikesbook App.</p>
+                    <p>In case you don't find what you inquire about, don’t hesitate to ask us through the contact us section and we will send you a very detailed answer about your inquiry immediately.</p>
+                </div>
+                <div class="uk-width-large-2-3">
+                    <div class="uk-accordion" data-uk-accordion>
+                        <h3 class="uk-accordion-title">Is the application available now in Google play and Apple stores?</h3>
+                        <div class="uk-accordion-content">
+                            <p>Right now, we have the beta version containing the garage and free rides function available in the Google play store, we are working hardly day and night to make our App available in both stores with the full functionality.</p>
+                        </div>
+                        <h3 class="uk-accordion-title">Is there is any hidden cost of using Bikesbook app?</h3>
+                        <div class="uk-accordion-content">
+                            <p>At this moment, we don’t charge the bikers any fees, using our App is totally free with all functionality.</p>
+                        </div>
+                        <h3 class="uk-accordion-title">Can I share my riding activities on my social network pages like Facebook and Twitter?</h3>
+                        <div class="uk-accordion-content">
+                            <p>Absolutely true, it is one of the amazing options we have in the beta version, once your account on Bikesbook is being connected to your Facebook or Twitter accounts; you can automatically publish your riding activities on your timeline. Meanwhile, if you want to keep it private, you can easly control it from your account setting in Bikesbook App.</p>
+                        </div>
+                        <h3 class="uk-accordion-title">What are the options of group riding?</h3>
+                        <div class="uk-accordion-content">
+                            <p>It Helps riders organize and archive their riding activities. Come build your small community, discuss with riders interesting topics, and record your riding activities as a historical archiving for your group.<br>
+                            Group features in our bikers network allows you to:<br>
+                            - Create and manage your group activities and posts.<br>
+                            - Create and arrange your riding activities with our Mobile app.<br>
+                            - Track and share all upcoming riding events.<br>
+                            - Archive your riding activities with photos and videos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section_large md-bg-blue-grey-50" id="sec-contact">
+        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-80}">
+            <div class="uk-grid">
+                <div class="uk-width-large-1-1 uk-container-center uk-text-center">
+                    <h2 class="heading_b">
+                        GET IN TOUCH WITH <span class="title-part-color">BIKESBOOK</span> !
+                        <span class="sub-heading">Wanna say hello? Or have any Feedback for us?</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="uk-grid uk-grid-width-1-1">
+                <form action="{% url 'contact' %}" method="POST"> {% csrf_token %}
+                    <div class="uk-form-row">
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <label>Full Name<span class="req">*</span></label>
+                                <input type="text"  name="name" class="md-input" required/>
+                            </div>
+                            <div class="uk-width-medium-1-2">
+                                <label>Your Email<span class="req">*</span></label>
+                                <input type="email" name="email" required  class="md-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label>Write the subject<span class="req">*</span></label>
+                        <input type="text"  name="subject" class="md-input" required />
+                    </div>
+                    <div class="uk-form-row">
+                        <label>Your message here... 20 characters Min.<span class="req">*</span></label>
+                        <textarea cols="30" rows="4" name="message" class="md-input" minlength="20" required></textarea>
+                    </div>
+                    <!--
+                    <div class="uk-form-row">
+                        <div class="g-recaptcha" data-sitekey="6LcVawgUAAAAAEp-Ebg9kzfl8P0pHOE2ppLZDt4D"></div>
+                    </div>
+                    -->
+                    <div class="uk-form-row">
+                        <button type="submit" class="md-btn md-btn-large btn-custom-light">Send my Message</button>
+                        <!--
+                        <button type="button" class="md-btn md-btn-large btn-custom-light" data-uk-modal="{target:'#modal_header_footer'}">Send my Message</button>
+                        <div class="uk-modal" id="modal_header_footer">
+                            <div class="uk-modal-dialog">
+                                <div class="uk-modal-header">
+                                    <h3 class="uk-modal-title">Success</h3>
+                                </div>
+                                <hr class="uk-grid-divider">
+                                <p>Thank you for contacting us, please check your email</p>
+                                <div class="uk-modal-footer uk-text-right">
+                                    <button type="button" class="md-btn md-btn-large btn-custom-light uk-modal-close">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section section_large" id="sec-subscribe">
+        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-80}">
+            <div class="uk-grid">
+                <div class="uk-width-large-1-1 uk-container-center uk-text-center">
+                    <h2 class="heading_b">
+                         SUBSCRIBE <span class="title-part-color">NOW</span> !
+                        <span class="sub-heading">
+                            Wanna be a part of our community?
+                            <br>
+                            <br>
+                            Please subscribe to our newsletter to be updated with everything about bikesbook
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="uk-grid uk-grid-width-1-1">
+                {% if form.errors %}
+                <p style="color: red;">
+                Please correct the error{{ form.errors|pluralize }} below.
+                </p>
+                {{ form.errors }}
+                {% endif %}
+                <form  method="POST" action="{% url 'subscribe' %}"> {% csrf_token %}
+                    <div class="uk-form-row">
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <label>Full Name<span class="req">*</span></label>
+                                <input type="text" id="name" name="full_name" class="md-input" required />
+                                </div>
+                            <div class="uk-width-medium-1-2">
+                                <label>Your Email<span class="req">*</span></label>
+                                <input type="email" name="email" data-parsley-trigger="change" required  class="md-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="uk-form-row">-->
+                        <!--<select id="country" onchange="changeMe(this)" placeholder="Your Country*..." required>-->
+                                <!--<option value="" >Your Country*...</option>-->
+                                <!--<option value="AF">Afghanistan</option>-->
+                                <!--<option value="AX">Åland Islands</option>-->
+                                <!--<option value="AL">Albania</option>-->
+                                <!--<option value="DZ">Algeria</option>-->
+                                <!--<option value="AS">American Samoa</option>-->
+                                <!--<option value="AD">Andorra</option>-->
+                                <!--<option value="AO">Angola</option>-->
+                                <!--<option value="AI">Anguilla</option>-->
+                                <!--<option value="AQ">Antarctica</option>-->
+                                <!--<option value="AG">Antigua and Barbuda</option>-->
+                                <!--<option value="AR">Argentina</option>-->
+                                <!--<option value="AM">Armenia</option>-->
+                                <!--<option value="AW">Aruba</option>-->
+                                <!--<option value="AU">Australia</option>-->
+                                <!--<option value="AT">Austria</option>-->
+                                <!--<option value="AZ">Azerbaijan</option>-->
+                                <!--<option value="BS">Bahamas</option>-->
+                                <!--<option value="BH">Bahrain</option>-->
+                                <!--<option value="BD">Bangladesh</option>-->
+                                <!--<option value="BB">Barbados</option>-->
+                                <!--<option value="BY">Belarus</option>-->
+                                <!--<option value="BE">Belgium</option>-->
+                                <!--<option value="BZ">Belize</option>-->
+                                <!--<option value="BJ">Benin</option>-->
+                                <!--<option value="BM">Bermuda</option>-->
+                                <!--<option value="BT">Bhutan</option>-->
+                                <!--<option value="BO">Bolivia, Plurinational State of</option>-->
+                                <!--<option value="BQ">Bonaire, Sint Eustatius and Saba</option>-->
+                                <!--<option value="BA">Bosnia and Herzegovina</option>-->
+                                <!--<option value="BW">Botswana</option>-->
+                                <!--<option value="BV">Bouvet Island</option>-->
+                                <!--<option value="BR">Brazil</option>-->
+                                <!--<option value="IO">British Indian Ocean Territory</option>-->
+                                <!--<option value="BN">Brunei Darussalam</option>-->
+                                <!--<option value="BG">Bulgaria</option>-->
+                                <!--<option value="BF">Burkina Faso</option>-->
+                                <!--<option value="BI">Burundi</option>-->
+                                <!--<option value="KH">Cambodia</option>-->
+                                <!--<option value="CM">Cameroon</option>-->
+                                <!--<option value="CA">Canada</option>-->
+                                <!--<option value="CV">Cape Verde</option>-->
+                                <!--<option value="KY">Cayman Islands</option>-->
+                                <!--<option value="CF">Central African Republic</option>-->
+                                <!--<option value="TD">Chad</option>-->
+                                <!--<option value="CL">Chile</option>-->
+                                <!--<option value="CN">China</option>-->
+                                <!--<option value="CX">Christmas Island</option>-->
+                                <!--<option value="CC">Cocos (Keeling) Islands</option>-->
+                                <!--<option value="CO">Colombia</option>-->
+                                <!--<option value="KM">Comoros</option>-->
+                                <!--<option value="CG">Congo</option>-->
+                                <!--<option value="CD">Congo, the Democratic Republic of the</option>-->
+                                <!--<option value="CK">Cook Islands</option>-->
+                                <!--<option value="CR">Costa Rica</option>-->
+                                <!--<option value="CI">Côte d'Ivoire</option>-->
+                                <!--<option value="HR">Croatia</option>-->
+                                <!--<option value="CU">Cuba</option>-->
+                                <!--<option value="CW">Curaçao</option>-->
+                                <!--<option value="CY">Cyprus</option>-->
+                                <!--<option value="CZ">Czech Republic</option>-->
+                                <!--<option value="DK">Denmark</option>-->
+                                <!--<option value="DJ">Djibouti</option>-->
+                                <!--<option value="DM">Dominica</option>-->
+                                <!--<option value="DO">Dominican Republic</option>-->
+                                <!--<option value="EC">Ecuador</option>-->
+                                <!--<option value="EG">Egypt</option>-->
+                                <!--<option value="SV">El Salvador</option>-->
+                                <!--<option value="GQ">Equatorial Guinea</option>-->
+                                <!--<option value="ER">Eritrea</option>-->
+                                <!--<option value="EE">Estonia</option>-->
+                                <!--<option value="ET">Ethiopia</option>-->
+                                <!--<option value="FK">Falkland Islands (Malvinas)</option>-->
+                                <!--<option value="FO">Faroe Islands</option>-->
+                                <!--<option value="FJ">Fiji</option>-->
+                                <!--<option value="FI">Finland</option>-->
+                                <!--<option value="FR">France</option>-->
+                                <!--<option value="GF">French Guiana</option>-->
+                                <!--<option value="PF">French Polynesia</option>-->
+                                <!--<option value="TF">French Southern Territories</option>-->
+                                <!--<option value="GA">Gabon</option>-->
+                                <!--<option value="GM">Gambia</option>-->
+                                <!--<option value="GE">Georgia</option>-->
+                                <!--<option value="DE">Germany</option>-->
+                                <!--<option value="GH">Ghana</option>-->
+                                <!--<option value="GI">Gibraltar</option>-->
+                                <!--<option value="GR">Greece</option>-->
+                                <!--<option value="GL">Greenland</option>-->
+                                <!--<option value="GD">Grenada</option>-->
+                                <!--<option value="GP">Guadeloupe</option>-->
+                                <!--<option value="GU">Guam</option>-->
+                                <!--<option value="GT">Guatemala</option>-->
+                                <!--<option value="GG">Guernsey</option>-->
+                                <!--<option value="GN">Guinea</option>-->
+                                <!--<option value="GW">Guinea-Bissau</option>-->
+                                <!--<option value="GY">Guyana</option>-->
+                                <!--<option value="HT">Haiti</option>-->
+                                <!--<option value="HM">Heard Island and McDonald Islands</option>-->
+                                <!--<option value="VA">Holy See (Vatican City State)</option>-->
+                                <!--<option value="HN">Honduras</option>-->
+                                <!--<option value="HK">Hong Kong</option>-->
+                                <!--<option value="HU">Hungary</option>-->
+                                <!--<option value="IS">Iceland</option>-->
+                                <!--<option value="IN">India</option>-->
+                                <!--<option value="ID">Indonesia</option>-->
+                                <!--<option value="IR">Iran, Islamic Republic of</option>-->
+                                <!--<option value="IQ">Iraq</option>-->
+                                <!--<option value="IE">Ireland</option>-->
+                                <!--<option value="IM">Isle of Man</option>-->
+                                <!--<option value="IL">Israel</option>-->
+                                <!--<option value="IT">Italy</option>-->
+                                <!--<option value="JM">Jamaica</option>-->
+                                <!--<option value="JP">Japan</option>-->
+                                <!--<option value="JE">Jersey</option>-->
+                                <!--<option value="JO">Jordan</option>-->
+                                <!--<option value="KZ">Kazakhstan</option>-->
+                                <!--<option value="KE">Kenya</option>-->
+                                <!--<option value="KI">Kiribati</option>-->
+                                <!--<option value="KP">Korea, Democratic People's Republic of</option>-->
+                                <!--<option value="KR">Korea, Republic of</option>-->
+                                <!--<option value="KW">Kuwait</option>-->
+                                <!--<option value="KG">Kyrgyzstan</option>-->
+                                <!--<option value="LA">Lao People's Democratic Republic</option>-->
+                                <!--<option value="LV">Latvia</option>-->
+                                <!--<option value="LB">Lebanon</option>-->
+                                <!--<option value="LS">Lesotho</option>-->
+                                <!--<option value="LR">Liberia</option>-->
+                                <!--<option value="LY">Libya</option>-->
+                                <!--<option value="LI">Liechtenstein</option>-->
+                                <!--<option value="LT">Lithuania</option>-->
+                                <!--<option value="LU">Luxembourg</option>-->
+                                <!--<option value="MO">Macao</option>-->
+                                <!--<option value="MK">Macedonia, the former Yugoslav Republic of</option>-->
+                                <!--<option value="MG">Madagascar</option>-->
+                                <!--<option value="MW">Malawi</option>-->
+                                <!--<option value="MY">Malaysia</option>-->
+                                <!--<option value="MV">Maldives</option>-->
+                                <!--<option value="ML">Mali</option>-->
+                                <!--<option value="MT">Malta</option>-->
+                                <!--<option value="MH">Marshall Islands</option>-->
+                                <!--<option value="MQ">Martinique</option>-->
+                                <!--<option value="MR">Mauritania</option>-->
+                                <!--<option value="MU">Mauritius</option>-->
+                                <!--<option value="YT">Mayotte</option>-->
+                                <!--<option value="MX">Mexico</option>-->
+                                <!--<option value="FM">Micronesia, Federated States of</option>-->
+                                <!--<option value="MD">Moldova, Republic of</option>-->
+                                <!--<option value="MC">Monaco</option>-->
+                                <!--<option value="MN">Mongolia</option>-->
+                                <!--<option value="ME">Montenegro</option>-->
+                                <!--<option value="MS">Montserrat</option>-->
+                                <!--<option value="MA">Morocco</option>-->
+                                <!--<option value="MZ">Mozambique</option>-->
+                                <!--<option value="MM">Myanmar</option>-->
+                                <!--<option value="NA">Namibia</option>-->
+                                <!--<option value="NR">Nauru</option>-->
+                                <!--<option value="NP">Nepal</option>-->
+                                <!--<option value="NL">Netherlands</option>-->
+                                <!--<option value="NC">New Caledonia</option>-->
+                                <!--<option value="NZ">New Zealand</option>-->
+                                <!--<option value="NI">Nicaragua</option>-->
+                                <!--<option value="NE">Niger</option>-->
+                                <!--<option value="NG">Nigeria</option>-->
+                                <!--<option value="NU">Niue</option>-->
+                                <!--<option value="NF">Norfolk Island</option>-->
+                                <!--<option value="MP">Northern Mariana Islands</option>-->
+                                <!--<option value="NO">Norway</option>-->
+                                <!--<option value="OM">Oman</option>-->
+                                <!--<option value="PK">Pakistan</option>-->
+                                <!--<option value="PW">Palau</option>-->
+                                <!--<option value="PS">Palestinian Territory, Occupied</option>-->
+                                <!--<option value="PA">Panama</option>-->
+                                <!--<option value="PG">Papua New Guinea</option>-->
+                                <!--<option value="PY">Paraguay</option>-->
+                                <!--<option value="PE">Peru</option>-->
+                                <!--<option value="PH">Philippines</option>-->
+                                <!--<option value="PN">Pitcairn</option>-->
+                                <!--<option value="PL">Poland</option>-->
+                                <!--<option value="PT">Portugal</option>-->
+                                <!--<option value="PR">Puerto Rico</option>-->
+                                <!--<option value="QA">Qatar</option>-->
+                                <!--<option value="RE">Réunion</option>-->
+                                <!--<option value="RO">Romania</option>-->
+                                <!--<option value="RU">Russian Federation</option>-->
+                                <!--<option value="RW">Rwanda</option>-->
+                                <!--<option value="BL">Saint Barthélemy</option>-->
+                                <!--<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>-->
+                                <!--<option value="KN">Saint Kitts and Nevis</option>-->
+                                <!--<option value="LC">Saint Lucia</option>-->
+                                <!--<option value="MF">Saint Martin (French part)</option>-->
+                                <!--<option value="PM">Saint Pierre and Miquelon</option>-->
+                                <!--<option value="VC">Saint Vincent and the Grenadines</option>-->
+                                <!--<option value="WS">Samoa</option>-->
+                                <!--<option value="SM">San Marino</option>-->
+                                <!--<option value="ST">Sao Tome and Principe</option>-->
+                                <!--<option value="SA">Saudi Arabia</option>-->
+                                <!--<option value="SN">Senegal</option>-->
+                                <!--<option value="RS">Serbia</option>-->
+                                <!--<option value="SC">Seychelles</option>-->
+                                <!--<option value="SL">Sierra Leone</option>-->
+                                <!--<option value="SG">Singapore</option>-->
+                                <!--<option value="SX">Sint Maarten (Dutch part)</option>-->
+                                <!--<option value="SK">Slovakia</option>-->
+                                <!--<option value="SI">Slovenia</option>-->
+                                <!--<option value="SB">Solomon Islands</option>-->
+                                <!--<option value="SO">Somalia</option>-->
+                                <!--<option value="ZA">South Africa</option>-->
+                                <!--<option value="GS">South Georgia and the South Sandwich Islands</option>-->
+                                <!--<option value="SS">South Sudan</option>-->
+                                <!--<option value="ES">Spain</option>-->
+                                <!--<option value="LK">Sri Lanka</option>-->
+                                <!--<option value="SD">Sudan</option>-->
+                                <!--<option value="SR">Suriname</option>-->
+                                <!--<option value="SJ">Svalbard and Jan Mayen</option>-->
+                                <!--<option value="SZ">Swaziland</option>-->
+                                <!--<option value="SE">Sweden</option>-->
+                                <!--<option value="CH">Switzerland</option>-->
+                                <!--<option value="SY">Syrian Arab Republic</option>-->
+                                <!--<option value="TW">Taiwan, Province of China</option>-->
+                                <!--<option value="TJ">Tajikistan</option>-->
+                                <!--<option value="TZ">Tanzania, United Republic of</option>-->
+                                <!--<option value="TH">Thailand</option>-->
+                                <!--<option value="TL">Timor-Leste</option>-->
+                                <!--<option value="TG">Togo</option>-->
+                                <!--<option value="TK">Tokelau</option>-->
+                                <!--<option value="TO">Tonga</option>-->
+                                <!--<option value="TT">Trinidad and Tobago</option>-->
+                                <!--<option value="TN">Tunisia</option>-->
+                                <!--<option value="TR">Turkey</option>-->
+                                <!--<option value="TM">Turkmenistan</option>-->
+                                <!--<option value="TC">Turks and Caicos Islands</option>-->
+                                <!--<option value="TV">Tuvalu</option>-->
+                                <!--<option value="UG">Uganda</option>-->
+                                <!--<option value="UA">Ukraine</option>-->
+                                <!--<option value="AE">United Arab Emirates</option>-->
+                                <!--<option value="GB">United Kingdom</option>-->
+                                <!--<option value="US">United States</option>-->
+                                <!--<option value="UM">United States Minor Outlying Islands</option>-->
+                                <!--<option value="UY">Uruguay</option>-->
+                                <!--<option value="UZ">Uzbekistan</option>-->
+                                <!--<option value="VU">Vanuatu</option>-->
+                                <!--<option value="VE">Venezuela, Bolivarian Republic of</option>-->
+                                <!--<option value="VN">Viet Nam</option>-->
+                                <!--<option value="VG">Virgin Islands, British</option>-->
+                                <!--<option value="VI">Virgin Islands, U.S.</option>-->
+                                <!--<option value="WF">Wallis and Futuna</option>-->
+                                <!--<option value="EH">Western Sahara</option>-->
+                                <!--<option value="YE">Yemen</option>-->
+                                <!--<option value="ZM">Zambia</option>-->
+                                <!--<option value="ZW">Zimbabwe</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+
+                    <div class="uk-form-row">
+                            {{form.country}}
+                    </div>
+                    <div class="uk-form-row">
+                        <button type="submit" class="md-btn md-btn-large btn-custom-light">Subscribe</button>
+                        <!--
+                        <button type="button" class="md-btn md-btn-large btn-custom-light" data-uk-modal="{target:'#modal_header_footer'}">Subscribe</button>
+                        <div class="uk-modal" id="modal_header_footer">
+                            <div class="uk-modal-dialog">
+                                <div class="uk-modal-header">
+                                    <h3 class="uk-modal-title">Confirm Your Email</h3>
+                                </div>
+                                <hr class="uk-grid-divider">
+                                <p>Almost finished...<br/>
+                                We need to confirm your email address.<br/>
+                                To complete the subscription process, please click the link in the email we just sent you</p>
+                                <div class="uk-modal-footer uk-text-right">
+                                    <button type="button" class="md-btn md-btn-large btn-custom-light uk-modal-close">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section_dark" id="footer">
+        <div class="uk-container uk-container-center">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-3-5 uk-text-center-medium">
+                    Copyright &copy; 2017 <span>Bikesbook</span>, All rights reserved.
+                </div>
+                <div class="uk-width-medium-2-5">
+                    <div class="uk-align-medium-right uk-text-center-medium">
+                        <a href="{% static 'https://www.facebook.com/bikesbook/" class="uk-margin-medium-right">
+                            <i class="fa fa-facebook uk-icon-small md-color-white"></i>
+                        </a>
+                        <a href="{% static 'https://twitter.com/bikesbook2016" class="uk-margin-medium-right">
+                            <i class="fa fa-twitter uk-icon-small md-color-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Select Country In Register From -->
+    <script>
+        function changeMe(sel)
+        {
+          sel.style.color = "#000";              
+        }
+    </script>
+
+    <!-- google web fonts -->
+    <script>
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:300,400,500,700,400italic:latin'
+                ]
+            }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+    <!-- common functions -->
+    <script src="{% static 'assets/js/common.min.js' %}"></script>
+    <!-- uikit functions -->
+    <script src="{% static 'assets/js/uikit_custom.min.js' %}"></script>
+    <!-- altair common functions/helpers -->
+    <script src="{% static 'assets/js/altair_lp_common.js' %}"></script>
+    <!-- google recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

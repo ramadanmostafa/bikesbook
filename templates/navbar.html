@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 site-logo animationonstart animated" data-animation="fadeInDown"
+                 data-animation-delay="1200">
+                <img src="{% static 'img/logo.png' %} " alt=""/>
+            </div>
+            <nav class="col-lg-6 social animationonstart animated" data-animation="fadeInDown"
+                 data-animation-delay="1200">
+
+                <ul class="socialicon">
+                    <li><a href="https://www.facebook.com/bikesbook/" title="bikesbook"><i
+                            class="fa fa-facebook"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+            {% include "messages_display.html" %}
+        </div>
+    </div>
+</nav>

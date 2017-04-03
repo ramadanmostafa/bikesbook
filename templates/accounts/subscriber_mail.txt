@@ -1,0 +1,8 @@
+Hello {{ full_name }},
+
+Thank you for being a part of BikesBook
+we will inform with any updates about our application
+
+Thank you!
+
+-Bikes Book
