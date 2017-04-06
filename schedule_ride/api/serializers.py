@@ -1,8 +1,11 @@
 from rest_framework import serializers
 from ..models import ScheduleRide, ScheduleRideJoiningRequests
+from custom_user.models import CustomUser
 
 
 class ScheduleRideSerializer(serializers.ModelSerializer):
+    bicycle = serializers.IntegerField(allow_null=True, required=False)
+    motorcycle = serializers.IntegerField(allow_null=True, required=False)
 
     def validate(self, data):
         if "bicycle" not in data and "motorcycle" in data:
@@ -39,5 +42,100 @@ class ScheduleRideRequestSerializer(serializers.ModelSerializer):
         fields = [
             "schedule_ride",
             "from_user",
-            "request_status"
+            "request_status",
+            "to_user"
+        ]
+
+class RequestActionSerializer(serializers.Serializer):
+
+    id = serializers.CharField(max_length=120, allow_blank=False)
+
+    def validate(self, attrs):
+        if not attrs["id"].isdigit():
+            raise serializers.ValidationError({"id": "Should be a number"})
+
+        if not ScheduleRideJoiningRequests.objects.filter(id=attrs["id"]):
+            raise serializers.ValidationError({
+                'id': 'Request ID not found'
+            })
+        return attrs
+
+
+    class Meta:
+        module = ScheduleRideJoiningRequests
+        fields = [
+            'id'
+        ]
+
+class ScheduleRideListSerializer(serializers.ModelSerializer):
+    is_admin = serializers.BooleanField()
+    requests = serializers.DictField()
+    bicycle = serializers.DictField()
+    motorcycle = serializers.DictField()
+
+    class Meta:
+
+        model = ScheduleRide
+        fields = [
+            "id",
+            "start_location_city",
+            "start_date",
+            "start_time",
+            "is_admin",
+            "bicycle",
+            "motorcycle",
+            "requests"
+        ]
+
+class ScheduleRideNearMeSerializer(serializers.ModelSerializer):
+    admin_name = serializers.CharField()
+    bicycle = serializers.DictField()
+    motorcycle = serializers.DictField()
+
+    class Meta:
+
+        model = ScheduleRide
+        fields = [
+            "id",
+            "start_location_city",
+            "start_date",
+            "start_time",
+            "admin_name",
+            "bicycle",
+            "motorcycle",
+            "start_location_lng",
+            "start_location_lat",
+        ]
+
+
+class ListRequestsToMeSerializer(serializers.ModelSerializer):
+
+    request_id = serializers.IntegerField()
+    request_sender_full_name = serializers.CharField()
+
+    class Meta:
+        model = ScheduleRide
+        fields = [
+            "request_id",
+            "request_sender_full_name",
+            "start_date",
+            "start_time",
+            "start_location_lng",
+            "start_location_lat"
+        ]
+
+
+class JoinedBikersSerializer(serializers.ModelSerializer):
+    motorcycle = serializers.DictField()
+    bicycle = serializers.DictField()
+
+    class Meta:
+        model = CustomUser
+        fields = [
+            "full_name",
+            "motorcycle",
+            "bicycle",
+            "country_code",
+            "mobile_number",
+            "address"
         ]
