@@ -81,3 +81,9 @@ def subscribe(request):
          }
     return render(request, "bikes2017/index.html", context)
 
+def ssl_cert(request):
+
+    from django.http import HttpResponse
+    content = """39446B82DEF3ABD4DD1BF915247E12F9522EF3AA
+comodoca.com"""
+    return HttpResponse(content, content_type='text/plain')

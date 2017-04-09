@@ -90,12 +90,10 @@ class NewBicycle(models.Model):
 
 class NewMotorcycle(models.Model):
     make = models.CharField(max_length=120)
-    style = models.CharField(max_length=120)
-    engine_size = models.CharField(max_length=120)
     model = models.CharField(max_length=120)
 
     def __unicode__(self):
-        return str(self.make) + '---' + str(self.style)
+        return str(self.make) + '---' + str(self.model)
 
 
 

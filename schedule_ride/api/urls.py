@@ -1,7 +1,8 @@
 from django.conf.urls import url
 from .views import ScheduleRideList, AddNewScheduleRideCreateAPIView, UpdateMyScheduleRideAPIView,\
     DeleteMyScheduleRideDestroyAPIView, ScheduleRidesNearMeListAPIView, AddRequestScheduleRide, ListRequestsIMade,\
-    ListRequestsToMe, AcceptRequestAPIView, IgnoreRequestAPIView, CancelReqIMade, CheckJoinedBikers
+    ListRequestsToMe, AcceptRequestAPIView, IgnoreRequestAPIView, CancelReqIMade, CheckJoinedBikers,\
+    CancelJoiningScheduleRide
 
 
 urlpatterns = [
@@ -18,4 +19,5 @@ urlpatterns = [
     url(r'^ignorereq/(?P<pk>[0-9]+)/$', IgnoreRequestAPIView.as_view(), name='ignore_request'),
     url(r'^cancelreq/(?P<pk>[0-9]+)/$', CancelReqIMade.as_view(), name='cancel_request'),
     url(r'^joined/(?P<pk>[0-9]+)/$', CheckJoinedBikers.as_view(), name='joined_bikers'),
+    url(r'^canceljoining/(?P<pk>[0-9]+)/$', CancelJoiningScheduleRide.as_view(), name='cancel_joining'),
 ]

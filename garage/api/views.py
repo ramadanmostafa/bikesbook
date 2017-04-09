@@ -10,8 +10,7 @@ from rest_framework_jwt.utils import jwt_decode_handler
 from serializers import (GarageDetailSerializer, BicycleMakeSerializer,
                          BicyceStyleSerializer, BicyceSerializer, MotorSerializer, MotorMakeSerializer,
                          MotorModelSerializer, SpeMotorMakeSerializer, MotorStyleSerializer, MotorEngineSerializer,
-                         BicyceListSerializer, MotorListSerializer, BicycemsSerializer,
-                         BicycleNewSerializer, MotorcycleNewSerializer)
+                         BicyceListSerializer, MotorListSerializer, BicycleNewSerializer, MotorcycleNewSerializer)
 
 
 class GarageDetailAPIView(RetrieveAPIView):
@@ -137,23 +136,23 @@ class BicycleCreateAPIView(CreateAPIView):
 
 
 
-class BicyclemsCreateAPIView(CreateAPIView):
-    '''
-      add new make and style to bicycle list
-    '''
-    serializer_class = BicycemsSerializer
-
-    def perform_create(self, serializer):
-        if serializer.is_valid():
-            make = serializer.data['make']
-            style = serializer.data['style']
-            new_style = BicyceStyle(style=style, active=False)
-            new_style.save()
-            new_make = BicycleMake(brand=make, active=False)
-            new_make.save()
-            return Response({'code': 1}, status=HTTP_200_OK)
-        else:
-            return Response({'code': -1}, status=HTTP_400_BAD_REQUEST)
+# class BicyclemsCreateAPIView(CreateAPIView):
+#     '''
+#       add new make and style to bicycle list
+#     '''
+#     serializer_class = BicycemsSerializer
+#
+#     def perform_create(self, serializer):
+#         if serializer.is_valid():
+#             make = serializer.data['make']
+#             style = serializer.data['style']
+#             new_style = BicyceStyle(style=style, active=False)
+#             new_style.save()
+#             new_make = BicycleMake(brand=make, active=False)
+#             new_make.save()
+#             return Response({'code': 1}, status=HTTP_200_OK)
+#         else:
+#             return Response({'code': -1}, status=HTTP_400_BAD_REQUEST)
 
 
 class MotorCreateAPIView(CreateAPIView):

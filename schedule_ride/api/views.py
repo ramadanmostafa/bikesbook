@@ -6,6 +6,7 @@ from .serializers import ScheduleRideSerializer, ScheduleRideRequestSerializer, 
 from places.api.permissions import IsAuthenticated
 from .permissions import IsSheduleRideOwner
 from ..models import ScheduleRide, ScheduleRideMembership, ScheduleRideJoiningRequests
+from custom_user.models import CustomUser
 from garage.models import Motorcycle, Bicycle
 from datetime import datetime
 
@@ -56,6 +57,12 @@ class ScheduleRideList(ListAPIView):
                 temp_dict["motorcycle"] = None
 
             temp_dict["is_admin"] = ScheduleRideMembership.objects.get(schedule_ride=ride, user=self.request.user).is_admin
+            temp_dict["admin_mobile_number"] = ''
+            if temp_dict["is_admin"]:
+                temp_dict["admin_mobile_number"] = CustomUser.objects.get(
+                    scheduleridemembership__schedule_ride=ride,
+                    scheduleridemembership__is_admin=True
+                ).mobile_number
 
             requests = dict()
             requests["total_number"] = len(ScheduleRideJoiningRequests.objects.filter(schedule_ride=ride))
@@ -488,3 +495,63 @@ class CheckJoinedBikers(ListAPIView):
                 temp_dict["motorcycle"] = None
             data.append(temp_dict)
         return data
+
+class CancelJoiningScheduleRide(DestroyAPIView):
+    """
+    take id of a schedule ride that i joined but i am not the admin \n
+    delete the request and the membership records for this user related to this ride 
+    """
+    def destroy(self, request, *args, **kwargs):
+        current_user = self.request.user
+        current_ride_id = self.kwargs["pk"]
+        if not ScheduleRide.objects.filter(pk=current_ride_id):
+            body = {
+                "code": -1,
+                "message": "Ride Does not exists"
+            }
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        current_membership = ScheduleRideMembership.objects.filter(
+            schedule_ride=current_ride_id,
+            user=current_user
+        )
+
+        if not current_membership:
+            body = {
+                "code": -2,
+                "message": "You are not a member in this ride"
+            }
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if current_membership[0].is_admin:
+            body = {
+                "code": -3,
+                "message": "You are the admin of this ride"
+            }
+            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+        current_joining_req = ScheduleRideJoiningRequests.objects.filter(
+            from_user=current_user,
+            schedule_ride=current_ride_id, request_status="A"
+        )
+        if not current_joining_req:
+            body = {
+                "code": -2,
+                "message": "You are not a member in this ride"
+            }
+            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+        current_membership.delete()
+        current_joining_req.delete()
+        body = {
+            "code": 1,
+            "message": "Good"
+        }
+        return Response(
+            body,
+            status=status.HTTP_200_OK
+        )

@@ -5,15 +5,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_jwt.views import refresh_jwt_token
-from .views import home,contact,subscribe
+from .views import home, contact, subscribe, ssl_cert
 
 
-def ssl_cert(request):
 
-    from django.http import HttpResponse
-    content = """39446B82DEF3ABD4DD1BF915247E12F9522EF3AA
-comodoca.com"""
-    return HttpResponse(content, content_type='text/plain')
 
 urlpatterns = [
     url(r'^$', home, name='home_page'),

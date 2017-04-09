@@ -41,13 +41,13 @@ class BicyceSerializer(ModelSerializer):
 #         ]
 #         extra_kwargs = {"id": {"read_only": True}}
 
-class BicycemsSerializer(ModelSerializer):
-    class Meta:
-        model = NewBicycle
-        fields = [
-            'make',
-            'style',
-        ]
+# class BicycemsSerializer(ModelSerializer):
+#     class Meta:
+#         model = NewBicycle
+#         fields = [
+#             'make',
+#             'style',
+#         ]
 
 
 class BicyceListSerializer(ModelSerializer):
@@ -240,7 +240,5 @@ class MotorcycleNewSerializer(ModelSerializer):
         model = NewMotorcycle
         fields = [
             "make",
-            "style",
-            "engine_size",
             "model"
         ]

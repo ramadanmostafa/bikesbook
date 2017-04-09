@@ -1,7 +1,7 @@
 """bikesbook URL Configuration
 """
 from django.conf.urls import url
-from garage.api.views import (GarageDetailAPIView, BicycleMakeListAPIView,BicyclemsCreateAPIView,
+from garage.api.views import (GarageDetailAPIView, BicycleMakeListAPIView,
                               BicycleStyleListAPIView, BicycleCreateAPIView, MotorCreateAPIView, MotorMakeListAPIView,
                               MotorModelListAPIView, SpeMotorMakeListAPIView, MotorStyleListAPIView, MotorCCListAPIView,
                               UpdateBicycleAPIView, UpdateMotorcycleAPIView, DeleteMotorcycleAPIView, AddNewBikeAPIView,
@@ -12,7 +12,9 @@ urlpatterns = [
     url(r'^bicyclemakes/$', BicycleMakeListAPIView.as_view(), name='bicyclemakes'),
     url(r'^bicyclestyles/$', BicycleStyleListAPIView.as_view(), name='bicyclestyles'),
     url(r'^addbicycle/$', BicycleCreateAPIView.as_view(), name='addbicycle'),
-    url(r'^addbicyclems/$', BicyclemsCreateAPIView.as_view(), name='addbicyclems'),
+
+    # url(r'^addbicyclems/$', BicyclemsCreateAPIView.as_view(), name='addbicyclems'),
+
     url(r'^bicyclelist/$', BicycleListAPIView.as_view(), name='bicyclelist'),
     url(r'^updatebicycle/(?P<pk>[0-9]+)/$', UpdateBicycleAPIView.as_view(), name='updatebicycle'),
     url(r'^delbicycle/(?P<pk>[0-9]+)/$', DeleteBicycleAPIView.as_view(), name='delbicycle'),

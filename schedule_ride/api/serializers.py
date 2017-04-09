@@ -72,6 +72,7 @@ class ScheduleRideListSerializer(serializers.ModelSerializer):
     requests = serializers.DictField()
     bicycle = serializers.DictField()
     motorcycle = serializers.DictField()
+    admin_mobile_number = serializers.CharField(max_length=25)
 
     class Meta:
 
@@ -84,7 +85,8 @@ class ScheduleRideListSerializer(serializers.ModelSerializer):
             "is_admin",
             "bicycle",
             "motorcycle",
-            "requests"
+            "requests",
+            "admin_mobile_number",
         ]
 
 class ScheduleRideNearMeSerializer(serializers.ModelSerializer):

@@ -31,17 +31,17 @@ def accept_request_bicycle(admin_class, request, new_items):
 def accept_request_motorcycle(admin_class, request, new_items):
 
     for new_motor in new_items:
-        MotorEngine.objects.create(cc=new_motor.engine_size)
+        # MotorEngine.objects.create(cc=new_motor.engine_size)
         new_make = MotorMake.objects.create(brand=new_motor.make)
-        MotorStyle.objects.create(style=new_motor.style)
+        # MotorStyle.objects.create(style=new_motor.style)
         MotorModel.objects.create(model=new_motor.model, make=new_make)
         NewMotorcycle.objects.filter(id=new_motor.id).delete()
 
 
 
 class NewMotorcycleAdmin(admin.ModelAdmin):
-    readonly_fields = ["make", "style", "engine_size", "model"]
-    list_display = ["make", "style", "engine_size", "model"]
+    readonly_fields = ["make", "model"]
+    list_display = ["make", "model"]
     actions = [accept_request_motorcycle]
 
     class Meta:
