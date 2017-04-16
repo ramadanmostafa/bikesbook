@@ -143,10 +143,10 @@ FCM_DJANGO_SETTINGS = {
 ###############################################################
 SITE_URL = "http://bikesbook.bike"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = "bikesbook@bikesbook.bike"
-EMAIL_HOST = "bikesbook.bike" #"smtp.sendgrid.net"
-EMAIL_HOST_USER = "bikesbook@bikesbook.bike"
-EMAIL_HOST_PASSWORD = "FypVnkvu"
+DEFAULT_FROM_EMAIL = "subscription@bikesbook.bike"
+EMAIL_HOST = "srv01.intelli-coders.com" #"smtp.sendgrid.net"
+EMAIL_HOST_USER = "subscription@bikesbook.bike"
+EMAIL_HOST_PASSWORD = "vivkEZ!4X9"
 EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 

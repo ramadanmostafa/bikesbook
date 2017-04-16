@@ -2,7 +2,7 @@ from .base import *
 
 
 print "loading settings form production....."
-DEBUG = False
+DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

@@ -21,7 +21,10 @@ class ScheduleRideList(ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
 
-        rides = ScheduleRide.objects.filter(user=self.request.user, start_date__gte=datetime.now())
+        rides = ScheduleRide.objects.filter(
+            user=self.request.user,
+            start_date__gte=datetime.now()
+        )
         data = []
         for ride in rides:
             temp_dict = dict()
@@ -81,10 +84,26 @@ class ScheduleRideList(ListAPIView):
                 ).mobile_number
 
             requests = dict()
-            requests["total_number"] = len(ScheduleRideJoiningRequests.objects.filter(schedule_ride=ride))
-            requests["pending"] = len(ScheduleRideJoiningRequests.objects.filter(schedule_ride=ride, request_status="P"))
-            requests["approved"] = len(ScheduleRideJoiningRequests.objects.filter(schedule_ride=ride, request_status="A"))
-            requests["denied"] = len(ScheduleRideJoiningRequests.objects.filter(schedule_ride=ride, request_status="D"))
+            requests["total_number"] = len(
+                ScheduleRideJoiningRequests.objects.filter(
+                    schedule_ride=ride
+                )
+            )
+            requests["pending"] = len(
+                ScheduleRideJoiningRequests.objects.filter(
+                    schedule_ride=ride, request_status="P"
+                )
+            )
+            requests["approved"] = len(
+                ScheduleRideJoiningRequests.objects.filter(
+                    schedule_ride=ride, request_status="A"
+                )
+            )
+            requests["denied"] = len(
+                ScheduleRideJoiningRequests.objects.filter(
+                    schedule_ride=ride, request_status="D"
+                )
+            )
             temp_dict["requests"] = requests
             data.append(temp_dict)
         return data

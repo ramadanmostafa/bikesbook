@@ -71,8 +71,8 @@ def subscribe(request):
         full_name = request.POST.get('full_name', '')
         context = {'subscriber_email': subscriber_email, "full_name": full_name}
         message = render_to_string("accounts/subscriber_mail.txt", context)
-        subject = "Thank you for joining Bikes book"
-        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [subscriber_email], fail_silently=True)
+        subject = "Thank you for your subscription with bikesbook"
+        send_mail(subject, message, "Bikesbook <%s>" % settings.DEFAULT_FROM_EMAIL, [subscriber_email], fail_silently=True)
         messages.success(request, "Thank you for your interest an Email has been sent to you")
         return HttpResponseRedirect("/")
     else:
