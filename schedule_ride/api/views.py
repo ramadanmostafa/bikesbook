@@ -30,7 +30,13 @@ class ScheduleRideList(ListAPIView):
             temp_dict["start_date"] = ride.start_date
             temp_dict["start_time"] = ride.start_time
 
-            bicycle = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(bicycle=None)
+            bicycle = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                bicycle=None
+            )
+
             if len(bicycle) == 1:
                 bike = dict()
                 bicycle = bicycle[0].bicycle
@@ -42,7 +48,13 @@ class ScheduleRideList(ListAPIView):
             else:
                 temp_dict["bicycle"] = None
 
-            motorbike = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(motorcycle=None)
+            motorbike = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                motorcycle=None
+            )
+
             if len(motorbike) == 1:
                 motorcycle = dict()
                 motorbike = motorbike[0].motorcycle
@@ -56,7 +68,11 @@ class ScheduleRideList(ListAPIView):
             else:
                 temp_dict["motorcycle"] = None
 
-            temp_dict["is_admin"] = ScheduleRideMembership.objects.get(schedule_ride=ride, user=self.request.user).is_admin
+            temp_dict["is_admin"] = ScheduleRideMembership.objects.get(
+                schedule_ride=ride,
+                user=self.request.user
+            ).is_admin
+
             temp_dict["admin_mobile_number"] = ''
             if temp_dict["is_admin"]:
                 temp_dict["admin_mobile_number"] = CustomUser.objects.get(
@@ -94,7 +110,7 @@ class AddNewScheduleRideCreateAPIView(CreateAPIView):
                     start_location_city=serializer.data["start_location_city"],
                     start_date=serializer.data["start_date"],
                     start_time=serializer.data["start_time"],
-                    allow_bikers_join=serializer.data["allow_bikers_join"],
+                    allow_bikers_join=serializer.data["allow_bikers_join"]
                 )
                 new_schedule_ride.save()
                 ScheduleRideMembership.objects.create(
@@ -102,19 +118,33 @@ class AddNewScheduleRideCreateAPIView(CreateAPIView):
                     schedule_ride_id=new_schedule_ride.id,
                     user_id=request.user.id,
                     bicycle=None if serializer.data["bicycle"] is None else Bicycle.objects.get(
-                        id=serializer.data["bicycle"]),
+                        id=serializer.data["bicycle"]
+                    ),
                     motorcycle=None if serializer.data["motorcycle"] is None else Motorcycle.objects.get(
-                        id=serializer.data["motorcycle"])
+                        id=serializer.data["motorcycle"]
+                    )
                 )
-                return Response(ScheduleRideSerializer(new_schedule_ride).data, status=status.HTTP_201_CREATED)
+                return Response(
+                    ScheduleRideSerializer(
+                        new_schedule_ride
+                    ).data,
+                    status=status.HTTP_201_CREATED
+                )
+
             else:
                 body = {
                     "code": -1,
                     "message": "you have another ride at the same time"
                 }
-                return Response(body, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    body,
+                    status=status.HTTP_400_BAD_REQUEST
+                )
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                serializer.errors,
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class DeleteMyScheduleRideDestroyAPIView(DestroyAPIView):
@@ -160,9 +190,18 @@ class ScheduleRidesNearMeListAPIView(ListAPIView):
             temp_dict["start_location_city"] = ride.start_location_city
             temp_dict["start_date"] = ride.start_date
             temp_dict["start_time"] = ride.start_time
-            temp_dict["admin_name"] = ScheduleRideMembership.objects.get(is_admin=True, schedule_ride=ride).user.full_name
+            temp_dict["admin_name"] = ScheduleRideMembership.objects.get(
+                is_admin=True,
+                schedule_ride=ride
+            ).user.full_name
 
-            bicycle = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(bicycle=None)
+            bicycle = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                bicycle=None
+            )
+
             if len(bicycle) == 1:
                 bike = dict()
                 bicycle = bicycle[0].bicycle
@@ -174,8 +213,13 @@ class ScheduleRidesNearMeListAPIView(ListAPIView):
             else:
                 temp_dict["bicycle"] = None
 
-            motorbike = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(
-                motorcycle=None)
+            motorbike = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                motorcycle=None
+            )
+
             if len(motorbike) == 1:
                 motorcycle = dict()
                 motorbike = motorbike[0].motorcycle
@@ -219,13 +263,25 @@ class AddRequestScheduleRide(CreateAPIView):
                     motorcycle = None
                     bicycle = None
                     try:
-                        motorcycle = Motorcycle.objects.get(garage__user=request.user, default=True)
+                        motorcycle = Motorcycle.objects.get(
+                            garage__user=request.user,
+                            default=True
+                        )
                     except:
                         try:
-                            bicycle = Bicycle.objects.get(garage__user=request.user, default=True)
+                            bicycle = Bicycle.objects.get(
+                                garage__user=request.user,
+                                default=True
+                            )
                         except:
-                            return Response({"code": -2, "message": "You should choose a default bike first"},
-                                            status=status.HTTP_400_BAD_REQUEST)
+                            body = {
+                                "code": -2,
+                                "message": "You should choose a default bike first"
+                            }
+                            return Response(
+                                body,
+                                status=status.HTTP_400_BAD_REQUEST
+                            )
 
                     new_request = ScheduleRideJoiningRequests(
                         from_user=request.user,
@@ -236,14 +292,36 @@ class AddRequestScheduleRide(CreateAPIView):
                         motorcycle=motorcycle
                     )
                     new_request.save()
-                    return Response(ScheduleRideRequestSerializer(new_request).data, status=status.HTTP_201_CREATED)
+                    return Response(
+                        ScheduleRideRequestSerializer(
+                            new_request
+                        ).data,
+                        status=status.HTTP_201_CREATED
+                    )
                 else:
-                    return Response({"code": -1, "message": "You can't send request to yourself"}, status=status.HTTP_400_BAD_REQUEST)
+                    body = {
+                        "code": -1,
+                        "message": "You can't send request to yourself"
+                    }
+                    return Response(
+                        body,
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
             else:
-                return Response({"code": -1, "message": "request Already sent"}, status=status.HTTP_400_BAD_REQUEST)
+                body = {
+                    "code": -1,
+                    "message": "request Already sent"
+                }
+                return Response(
+                    body,
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                serializer.errors,
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class ListRequestsIMade(ListAPIView):
@@ -271,9 +349,18 @@ class ListRequestsIMade(ListAPIView):
             temp_dict["start_location_city"] = ride.start_location_city
             temp_dict["start_date"] = ride.start_date
             temp_dict["start_time"] = ride.start_time
-            temp_dict["admin_name"] = ScheduleRideMembership.objects.get(is_admin=True, schedule_ride=ride).user.full_name
+            temp_dict["admin_name"] = ScheduleRideMembership.objects.get(
+                is_admin=True,
+                schedule_ride=ride
+            ).user.full_name
 
-            bicycle = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(bicycle=None)
+            bicycle = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                bicycle=None
+            )
+
             if len(bicycle) == 1:
                 bike = dict()
                 bicycle = bicycle[0].bicycle
@@ -285,8 +372,13 @@ class ListRequestsIMade(ListAPIView):
             else:
                 temp_dict["bicycle"] = None
 
-            motorbike = ScheduleRideMembership.objects.filter(schedule_ride=ride, is_admin=True).exclude(
-                motorcycle=None)
+            motorbike = ScheduleRideMembership.objects.filter(
+                schedule_ride=ride,
+                is_admin=True
+            ).exclude(
+                motorcycle=None
+            )
+
             if len(motorbike) == 1:
                 motorcycle = dict()
                 motorbike = motorbike[0].motorcycle
@@ -351,16 +443,41 @@ class AcceptRequestAPIView(UpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         try:
-            my_request = ScheduleRideJoiningRequests.objects.get(id=self.kwargs["pk"])
+            my_request = ScheduleRideJoiningRequests.objects.get(
+                id=self.kwargs["pk"]
+            )
         except:
-            body = {"code":-1, "message": "Request Not Found"}
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            body = {
+                "code":-1,
+                "message": "Request Not Found"
+            }
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         if my_request.request_status != "P":
-            body = {"code": "-2", "message": "Request status should be P Not %s" % my_request.request_status}
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
-        if not ScheduleRideMembership.objects.filter(is_admin=True, schedule_ride=my_request.schedule_ride, user=request.user):
-            body = {"code": "-3", "message": "You should be the admin of this ride"}
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            body = {
+                "code": "-2",
+                "message": "Request status should be P Not %s" % my_request.request_status
+            }
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        if not ScheduleRideMembership.objects.filter(
+                is_admin=True,
+                schedule_ride=my_request.schedule_ride,
+                user=request.user
+        ):
+            body = {
+                "code": "-3",
+                "message": "You should be the admin of this ride"
+            }
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         my_request.request_status = "A"
         my_request.save()
         ScheduleRideMembership.objects.get_or_create(
@@ -370,7 +487,14 @@ class AcceptRequestAPIView(UpdateAPIView):
             bicycle=my_request.bicycle,
             motorcycle=my_request.motorcycle
         )
-        return Response({"code": 1, "message": "OK"}, status=status.HTTP_200_OK)
+        body = {
+            "code": 1,
+            "message": "OK"
+        }
+        return Response(
+            body,
+            status=status.HTTP_200_OK
+        )
 
 
 class IgnoreRequestAPIView(UpdateAPIView):
@@ -384,34 +508,48 @@ class IgnoreRequestAPIView(UpdateAPIView):
     def update(self, request, *args, **kwargs):
         try:
             my_request = ScheduleRideJoiningRequests.objects.get(id=self.kwargs["pk"])
-        except:
+        except ScheduleRideJoiningRequests.DoesNotExist:
             body = {
                 "code": -1,
                 "message": "Request Not Found"
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         if my_request.request_status != "P":
             body = {
                 "code": "-2",
                 "message": "Request status should be P Not %s" % my_request.request_status
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
-        if not ScheduleRideMembership.objects.filter(is_admin=True,
-                                                     schedule_ride=my_request.schedule_ride,
-                                                     user=request.user
-                                                     ):
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if not ScheduleRideMembership.objects.filter(
+            is_admin=True,
+            schedule_ride=my_request.schedule_ride,
+            user=request.user
+        ):
             body = {
                 "code": "-3",
                 "message": "You should be the admin of this ride"
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         my_request.request_status = "I"
         my_request.save()
         body = {
             "code": 1,
             "message": "OK"
         }
-        return Response(body, status=status.HTTP_200_OK)
+        return Response(
+            body,
+            status=status.HTTP_200_OK
+        )
 
 
 class CancelReqIMade(UpdateAPIView):
@@ -425,33 +563,45 @@ class CancelReqIMade(UpdateAPIView):
     def update(self, request, *args, **kwargs):
         try:
             my_request = ScheduleRideJoiningRequests.objects.get(id=self.kwargs["pk"])
-        except:
+        except ScheduleRideJoiningRequests.DoesNotExist:
             body = {
                 "code": -1,
                 "message": "Request Not Found"
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         if my_request.request_status != "P":
             body = {
                 "code": "-2",
                 "message": "Request status should be P Not %s" % my_request.request_status
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         if not ScheduleRideJoiningRequests.objects.filter(
-                schedule_ride=my_request.schedule_ride,
-                from_user=request.user
+            schedule_ride=my_request.schedule_ride,
+            from_user=request.user
         ):
             body = {
                 "code": "-3",
                 "message": "You should be the sender of this request"
             }
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                body,
+                status=status.HTTP_400_BAD_REQUEST
+            )
         my_request.delete()
         body = {
             "code": 1,
             "message": "OK"
         }
-        return Response(body, status=status.HTTP_200_OK)
+        return Response(
+            body,
+            status=status.HTTP_200_OK
+        )
 
 
 class CheckJoinedBikers(ListAPIView):
@@ -463,7 +613,11 @@ class CheckJoinedBikers(ListAPIView):
 
     def get_queryset(self):
 
-        memberships = ScheduleRideMembership.objects.filter(schedule_ride=self.kwargs["pk"], is_admin=False)
+        memberships = ScheduleRideMembership.objects.filter(
+            schedule_ride=self.kwargs["pk"],
+            is_admin=False
+        )
+
         data = []
         for membership in memberships:
             temp_dict = dict()
@@ -495,6 +649,7 @@ class CheckJoinedBikers(ListAPIView):
                 temp_dict["motorcycle"] = None
             data.append(temp_dict)
         return data
+
 
 class CancelJoiningScheduleRide(DestroyAPIView):
     """

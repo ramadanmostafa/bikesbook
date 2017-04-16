@@ -4,14 +4,25 @@ from custom_user.models import CustomUser
 
 
 class ScheduleRideSerializer(serializers.ModelSerializer):
+    """
+    
+    """
     bicycle = serializers.IntegerField(allow_null=True, required=False)
     motorcycle = serializers.IntegerField(allow_null=True, required=False)
 
     def validate(self, data):
         if "bicycle" not in data and "motorcycle" in data:
-            data.update({"bicycle": None})
+            data.update(
+                {
+                    "bicycle": None
+                }
+            )
         elif "motorcycle" not in data and "bicycle" in data:
-            data.update({"motorcycle": None})
+            data.update(
+                {
+                    "motorcycle": None
+                }
+            )
         elif "motorcycle" in data and "bicycle" in data:
             raise serializers.ValidationError("You should select bicycle or motorcycle not both")
         else:
@@ -34,10 +45,11 @@ class ScheduleRideSerializer(serializers.ModelSerializer):
             "motorcycle",
         ]
 
+
 class ScheduleRideRequestSerializer(serializers.ModelSerializer):
 
-
     class Meta:
+
         model = ScheduleRideJoiningRequests
         fields = [
             "schedule_ride",
@@ -52,12 +64,18 @@ class RequestActionSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         if not attrs["id"].isdigit():
-            raise serializers.ValidationError({"id": "Should be a number"})
+            raise serializers.ValidationError(
+                {
+                    "id": "Should be a number"
+                }
+            )
 
         if not ScheduleRideJoiningRequests.objects.filter(id=attrs["id"]):
-            raise serializers.ValidationError({
-                'id': 'Request ID not found'
-            })
+            raise serializers.ValidationError(
+                {
+                    'id': 'Request ID not found'
+                }
+            )
         return attrs
 
 

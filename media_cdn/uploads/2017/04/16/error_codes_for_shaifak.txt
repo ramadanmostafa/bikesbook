@@ -1,0 +1,28 @@
+Error Codes:
+--------------
+User Management Module:
+
+signup:
+status = 1 --> "User is created. Please use OTP to login"
+status = -1 --> data not valid (missing field)
+status = -2 --> "Enter a valid Mobile Number.", mobile number contains characters
+status = -3 --> "User with this mobile No already Exists."
+
+login
+status = 1 --> "ok"
+status = -1 --> data not valid (missing field)
+status = -2 --> 'mobileNo': 'This user doesnot Exist.'
+--------------------------------------------------------------------------------------------------------------
+Relative Management Module:
+
+
+listRelative
+status = 1 --> "ok"
+
+addRelative
+
+
+deleteRelative
+
+
+modifyRelative

@@ -60,14 +60,14 @@ class RideEndAPIView(RetrieveUpdateAPIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class RideFileAPIView(RetrieveUpdateAPIView):
+class RideFileAPIView(CreateAPIView):
     """
     receive a ride file and the id of the ride then store the file in media_cdn/uploads/Year/Month/Day
     """
     serializer_class = RideFileSerializer
     permission_classes = [IsGarageOwner]
 
-    def update(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             my_ride = Ride.objects.get(id=serializer.data["id"])

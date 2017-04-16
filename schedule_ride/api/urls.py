@@ -6,18 +6,95 @@ from .views import ScheduleRideList, AddNewScheduleRideCreateAPIView, UpdateMySc
 
 
 urlpatterns = [
-    url(r'^$', ScheduleRideList.as_view(), name='list_my_schedule_rides'),
-    url(r'^addnewscheduleride/$', AddNewScheduleRideCreateAPIView.as_view(), name='add_new_schedule_ride'),
-    url(r'^deletescheduleride/(?P<pk>[0-9]+)/$', DeleteMyScheduleRideDestroyAPIView.as_view(), name='delete_schedule_ride'),
-    url(r'^updatescheduleride/(?P<pk>[0-9]+)/$', UpdateMyScheduleRideAPIView.as_view(), name='update_schedule_ride'),
-    url(r'^ridesnearme/(?P<city>[0-9a-zA-Z]+)/$', ScheduleRidesNearMeListAPIView.as_view(), name='rides_near_me'),
-    url(r'^addreq/$', AddRequestScheduleRide.as_view(), name='add_request'),
-    url(r'^reqimade/$', ListRequestsIMade.as_view(), name='requests_i_made'),
-    url(r'^reqtome/$', ListRequestsToMe.as_view(), name='requests_to_me'),
 
-    url(r'^acceptreq/(?P<pk>[0-9]+)/$', AcceptRequestAPIView.as_view(), name='accept_request'),
-    url(r'^ignorereq/(?P<pk>[0-9]+)/$', IgnoreRequestAPIView.as_view(), name='ignore_request'),
-    url(r'^cancelreq/(?P<pk>[0-9]+)/$', CancelReqIMade.as_view(), name='cancel_request'),
-    url(r'^joined/(?P<pk>[0-9]+)/$', CheckJoinedBikers.as_view(), name='joined_bikers'),
-    url(r'^canceljoining/(?P<pk>[0-9]+)/$', CancelJoiningScheduleRide.as_view(), name='cancel_joining'),
+    # list all my schedule rides
+    url(
+        regex=r'^$',
+        view=ScheduleRideList.as_view(),
+        name='list_my_schedule_rides'
+    ),
+
+    # add new schedule rides
+    url(
+        regex=r'^addnewscheduleride/$',
+        view=AddNewScheduleRideCreateAPIView.as_view(),
+        name='add_new_schedule_ride'
+    ),
+
+    # delete my schedule ride
+    url(
+        regex=r'^deletescheduleride/(?P<pk>[0-9]+)/$',
+        view=DeleteMyScheduleRideDestroyAPIView.as_view(),
+        name='delete_schedule_ride'
+    ),
+
+    # update my schedule ride
+    url(
+        regex=r'^updatescheduleride/(?P<pk>[0-9]+)/$',
+        view=UpdateMyScheduleRideAPIView.as_view(),
+        name='update_schedule_ride'
+    ),
+
+    # list schedule rides near me
+    url(
+        regex=r'^ridesnearme/(?P<city>[0-9a-zA-Z]+)/$',
+        view=ScheduleRidesNearMeListAPIView.as_view(),
+        name='rides_near_me'
+    ),
+
+    # send a request to join a schedule ride
+    url(
+        regex=r'^addreq/$',
+        view=AddRequestScheduleRide.as_view(),
+        name='add_request'
+    ),
+
+    # list the requests i made
+    url(
+        regex=r'^reqimade/$',
+        view=ListRequestsIMade.as_view(),
+        name='requests_i_made'
+    ),
+
+    # list the requests sent to my schedule rides
+    url(
+        regex=r'^reqtome/$',
+        view=ListRequestsToMe.as_view(),
+        name='requests_to_me'
+    ),
+
+    # accept a request
+    url(
+        regex=r'^acceptreq/(?P<pk>[0-9]+)/$',
+        view=AcceptRequestAPIView.as_view(),
+        name='accept_request'
+    ),
+
+    # ignore a request
+    url(
+        regex=r'^ignorereq/(?P<pk>[0-9]+)/$',
+        view=IgnoreRequestAPIView.as_view(),
+        name='ignore_request'
+    ),
+
+    # cancel request i made
+    url(
+        regex=r'^cancelreq/(?P<pk>[0-9]+)/$',
+        view=CancelReqIMade.as_view(),
+        name='cancel_request'
+    ),
+
+    # list all joined bikers to my schedule ride
+    url(
+        regex=r'^joined/(?P<pk>[0-9]+)/$',
+        view=CheckJoinedBikers.as_view(),
+        name='joined_bikers'
+    ),
+
+    # cancel joining a schedule ride after my request have approved.
+    url(
+        regex=r'^canceljoining/(?P<pk>[0-9]+)/$',
+        view=CancelJoiningScheduleRide.as_view(),
+        name='cancel_joining'
+    ),
 ]

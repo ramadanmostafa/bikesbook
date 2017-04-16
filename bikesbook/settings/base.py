@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    "fcm_django",
     'custom_user',
     'garage',
     'rest_framework_docs',
@@ -131,9 +132,15 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
     'JWT_PAYLOAD_GET_USERNAME_HANDLER':'custom_user.api.utils.jwt_get_username_from_payload_handler',
     'JWT_AUTH_HEADER_PREFIX': 'Token',
-    'JWT_VERIFY_EXPIRATION':False
+    'JWT_VERIFY_EXPIRATION': False
 }
 
+######################################################################
+# Firebase settings
+FCM_DJANGO_SETTINGS = {
+        "FCM_SERVER_KEY": "12345"
+}
+###############################################################
 SITE_URL = "http://bikesbook.bike"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = "bikesbook@bikesbook.bike"
