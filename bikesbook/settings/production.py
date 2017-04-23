@@ -16,10 +16,10 @@ DATABASES = {
         # 'USER': 'bikesbook',
         # 'PASSWORD': '7JuNWzGXfy',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c4bikesbook_db',
+        'NAME': 'bikesbook',
         'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
         'PORT': '',
-        'USER': 'c4bikesbook',
-        'PASSWORD': 'qhMkG2K#8',
+        'USER': 'bikesbook',
+        'PASSWORD': '123456',
     }
 }
