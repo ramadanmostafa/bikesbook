@@ -351,7 +351,7 @@ class chkactivation(APIView):
         serializer = chkactivationSerializer(data=data)
         if serializer.is_valid():
             associated_user = CustomUser.objects.get(mobile_number=serializer.data['mobile_number'])
-            if associated_user.pin_code == serializer.data['pin_code']:
+            if associated_user.pin_code == serializer.data['pin_code'] or not settings.CHECK_OTP:
                 associated_user.is_active = True
                 associated_user.save()
                 payload = jwt_payload_handler(associated_user)

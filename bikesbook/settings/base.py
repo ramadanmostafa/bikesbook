@@ -14,6 +14,7 @@ SECRET_KEY = '7@eff!k6o^gq^yrp32iqf)9(hub0_1^_*raes%)d+og991@@6p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SEND_SMS = False
+CHECK_OTP = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -144,7 +145,7 @@ FCM_DJANGO_SETTINGS = {
 SITE_URL = "http://bikesbook.bike"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = "subscription@bikesbook.bike"
-EMAIL_HOST = "srv01.intelli-coders.com" #"smtp.sendgrid.net"
+EMAIL_HOST = "mail.bikesbook.bike" #"smtp.sendgrid.net"
 EMAIL_HOST_USER = "subscription@bikesbook.bike"
 EMAIL_HOST_PASSWORD = "vivkEZ!4X9"
 EMAIL_PORT = 25
