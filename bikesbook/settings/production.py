@@ -17,9 +17,9 @@ DATABASES = {
         # 'PASSWORD': '7JuNWzGXfy',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bikesbook',
-        'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
+        'HOST': '97.107.140.219',  # Or an IP Address that your DB is hosted on
         'PORT': '',
         'USER': 'bikesbook',
-        'PASSWORD': '123456',
+        'PASSWORD': 'qwDm,v6Nf',
     }
 }

@@ -5,13 +5,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_jwt.views import refresh_jwt_token
-from .views import home, contact, subscribe, ssl_cert
+from .views import home, contact, subscribe, ssl_cert, subs_validate_email, privacy
 
 
 
 
 urlpatterns = [
     url(r'^$', home, name='home_page'),
+    url(r'^subscribe/validate_email/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]+)/$',
+            subs_validate_email,
+            name='subs_validate_email'
+        ),
     url(r'^admin/', admin.site.urls),
     url(r'^api/users/', include('custom_user.api.urls')),
     url(r'^api/garage/', include('garage.api.urls')),
@@ -24,6 +28,7 @@ urlpatterns = [
     url(r'^contact/$', contact, name='contact'),
     url(r'^subscribe/$', subscribe, name='subscribe'),
     url(r'^B120FBEBC59A1E29B57DE4B975FCB565.txt$', ssl_cert),
+    url(r'^privacy/$', privacy, name='privacy'),
 
 
 ]

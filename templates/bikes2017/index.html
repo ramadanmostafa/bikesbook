@@ -24,6 +24,9 @@
     <!-- altair landing page -->
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" media="all">
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
     <!-- matchMedia polyfill for testing media queries in JS -->
     <!--[if lte IE 9]>
         <script type="text/javascript" src="{% static 'bower_components/matchMedia/matchMedia.js' %}"></script>
@@ -59,7 +62,7 @@
 
 
                         <li>
-                            <a href="#sec-contact">
+                            <a href="/contact/">
                                 Contact
                             </a>
                         </li>
@@ -86,61 +89,61 @@
         <div class="uk-offcanvas-bar">
             <ul>
                 <li>
-                    <a href="{% static '#sec-home" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-home" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-home fa-lg"></i></span>
                         <span class="menu_title" style="visibility: hidden;">Home</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-about" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-about" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-list" aria-hidden="true"></i></span>
                         <span class="menu_title">About US</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-gallery" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-gallery" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
                         <span class="menu_title">APP SCREENS</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-faq" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-faq" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
                         <span class="menu_title">Faq</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-news" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-news" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-pencil-square" aria-hidden="true"></i></span>
                         <span class="menu_title">Our News</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-kickstarter" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-kickstarter" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><img src="{% static 'assets/img/support.png' %}" alt="" width="17" height="17"></span>
                         <span class="menu_title">On Kickstarter</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-contact" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-contact" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <span class="menu_icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                         <span class="menu_title">Contact</span>
                     </a>
                 </li>
                 <hr class="uk-grid-divider">
                 <li>
-                    <a href="{% static '#sec-subscribe" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#sec-subscribe" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <button class="md-btn uk-navbar-flip header_cta btn-custom-light">Subscribe</button>
                     </a>
                 </li>
                 <li>
-                    <a href="{% static '#" data-uk-smooth-scroll="{offset: 48}">
+                    <a href="{% static '#" data-uk-smooth-scroll="{offset: 48}"' %}">
                         <img src="{% static 'assets/img/google-play-badge.png' %}" alt="google-play-download" width="117" height="37" class="">
                     </a>
                 </li>
@@ -206,7 +209,11 @@
                         <i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i>
                     </div>
                     <h3 class="heading_c uk-text-center">Stores</h3>
-                    <p class="uk-text-left">Based on your store nature (Individual – Dealer – Physical store – Agency) you will be able to offer products and services directly to our biker community. This is done via traditional list price or Auction.</p>
+                    <p class="uk-text-left">Based on your store nature
+                        (Individual – Dealer – Physical store – Agency) you will be able to
+                        offer products and services directly to our biker community.
+                        This is done via traditional list price or Auction.
+                    </p>
                 </div>
             </div>
         </div>
@@ -256,8 +263,8 @@
                     </ul>
                 </div>
                 <div class="slide_navigation">
-                    <a href="{% static '" class="uk-slidenav uk-slidenav-previous" data-uk-slider-item="previous"></a>
-                    <a href="{% static '" class="uk-slidenav uk-slidenav-next" data-uk-slider-item="next"></a>
+                    <a href="{% static ' class="uk-slidenav uk-slidenav-previous" data-uk-slider-item="previous"' %}"></a>
+                    <a href="{% static ' class="uk-slidenav uk-slidenav-next" data-uk-slider-item="next"' %}"></a>
                 </div>
             </div>
         </div>
@@ -300,67 +307,6 @@
             </div>
         </div>
     </section>
-    <section class="section section_large md-bg-blue-grey-50" id="sec-contact">
-        <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-80}">
-            <div class="uk-grid">
-                <div class="uk-width-large-1-1 uk-container-center uk-text-center">
-                    <h2 class="heading_b">
-                        GET IN TOUCH WITH <span class="title-part-color">BIKESBOOK</span> !
-                        <span class="sub-heading">Wanna say hello? Or have any Feedback for us?</span>
-                    </h2>
-                </div>
-            </div>
-            <div class="uk-grid uk-grid-width-1-1">
-                <form action="{% url 'contact' %}" method="POST"> {% csrf_token %}
-                    <div class="uk-form-row">
-                        <div class="uk-grid" data-uk-grid-margin>
-                            <div class="uk-width-medium-1-2">
-                                <label>Full Name<span class="req">*</span></label>
-                                <input type="text"  name="name" class="md-input" required/>
-                            </div>
-                            <div class="uk-width-medium-1-2">
-                                <label>Your Email<span class="req">*</span></label>
-                                <input type="email" name="email" required  class="md-input" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-form-row">
-                        <label>Write the subject<span class="req">*</span></label>
-                        <input type="text"  name="subject" class="md-input" required />
-                    </div>
-                    <div class="uk-form-row">
-                        <label>Your message here... 20 characters Min.<span class="req">*</span></label>
-                        <textarea cols="30" rows="4" name="message" class="md-input" minlength="20" required></textarea>
-                    </div>
-                    <!--
-                    <div class="uk-form-row">
-                        <div class="g-recaptcha" data-sitekey="6LcVawgUAAAAAEp-Ebg9kzfl8P0pHOE2ppLZDt4D"></div>
-                    </div>
-                    -->
-                    <div class="uk-form-row">
-                        <button type="submit" class="md-btn md-btn-large btn-custom-light">Send my Message</button>
-                        <!--
-                        <button type="button" class="md-btn md-btn-large btn-custom-light" data-uk-modal="{target:'#modal_header_footer'}">Send my Message</button>
-                        <div class="uk-modal" id="modal_header_footer">
-                            <div class="uk-modal-dialog">
-                                <div class="uk-modal-header">
-                                    <h3 class="uk-modal-title">Success</h3>
-                                </div>
-                                <hr class="uk-grid-divider">
-                                <p>Thank you for contacting us, please check your email</p>
-                                <div class="uk-modal-footer uk-text-right">
-                                    <button type="button" class="md-btn md-btn-large btn-custom-light uk-modal-close">Ok</button>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-
 
     <section class="section section_large" id="sec-subscribe">
         <div class="uk-container uk-container-center uk-invisible" data-uk-scrollspy="{cls:'uk-animation-fade uk-invisible',delay:200,topoffset:-80}">
@@ -397,283 +343,17 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="uk-form-row">-->
-                        <!--<select id="country" onchange="changeMe(this)" placeholder="Your Country*..." required>-->
-                                <!--<option value="" >Your Country*...</option>-->
-                                <!--<option value="AF">Afghanistan</option>-->
-                                <!--<option value="AX">Åland Islands</option>-->
-                                <!--<option value="AL">Albania</option>-->
-                                <!--<option value="DZ">Algeria</option>-->
-                                <!--<option value="AS">American Samoa</option>-->
-                                <!--<option value="AD">Andorra</option>-->
-                                <!--<option value="AO">Angola</option>-->
-                                <!--<option value="AI">Anguilla</option>-->
-                                <!--<option value="AQ">Antarctica</option>-->
-                                <!--<option value="AG">Antigua and Barbuda</option>-->
-                                <!--<option value="AR">Argentina</option>-->
-                                <!--<option value="AM">Armenia</option>-->
-                                <!--<option value="AW">Aruba</option>-->
-                                <!--<option value="AU">Australia</option>-->
-                                <!--<option value="AT">Austria</option>-->
-                                <!--<option value="AZ">Azerbaijan</option>-->
-                                <!--<option value="BS">Bahamas</option>-->
-                                <!--<option value="BH">Bahrain</option>-->
-                                <!--<option value="BD">Bangladesh</option>-->
-                                <!--<option value="BB">Barbados</option>-->
-                                <!--<option value="BY">Belarus</option>-->
-                                <!--<option value="BE">Belgium</option>-->
-                                <!--<option value="BZ">Belize</option>-->
-                                <!--<option value="BJ">Benin</option>-->
-                                <!--<option value="BM">Bermuda</option>-->
-                                <!--<option value="BT">Bhutan</option>-->
-                                <!--<option value="BO">Bolivia, Plurinational State of</option>-->
-                                <!--<option value="BQ">Bonaire, Sint Eustatius and Saba</option>-->
-                                <!--<option value="BA">Bosnia and Herzegovina</option>-->
-                                <!--<option value="BW">Botswana</option>-->
-                                <!--<option value="BV">Bouvet Island</option>-->
-                                <!--<option value="BR">Brazil</option>-->
-                                <!--<option value="IO">British Indian Ocean Territory</option>-->
-                                <!--<option value="BN">Brunei Darussalam</option>-->
-                                <!--<option value="BG">Bulgaria</option>-->
-                                <!--<option value="BF">Burkina Faso</option>-->
-                                <!--<option value="BI">Burundi</option>-->
-                                <!--<option value="KH">Cambodia</option>-->
-                                <!--<option value="CM">Cameroon</option>-->
-                                <!--<option value="CA">Canada</option>-->
-                                <!--<option value="CV">Cape Verde</option>-->
-                                <!--<option value="KY">Cayman Islands</option>-->
-                                <!--<option value="CF">Central African Republic</option>-->
-                                <!--<option value="TD">Chad</option>-->
-                                <!--<option value="CL">Chile</option>-->
-                                <!--<option value="CN">China</option>-->
-                                <!--<option value="CX">Christmas Island</option>-->
-                                <!--<option value="CC">Cocos (Keeling) Islands</option>-->
-                                <!--<option value="CO">Colombia</option>-->
-                                <!--<option value="KM">Comoros</option>-->
-                                <!--<option value="CG">Congo</option>-->
-                                <!--<option value="CD">Congo, the Democratic Republic of the</option>-->
-                                <!--<option value="CK">Cook Islands</option>-->
-                                <!--<option value="CR">Costa Rica</option>-->
-                                <!--<option value="CI">Côte d'Ivoire</option>-->
-                                <!--<option value="HR">Croatia</option>-->
-                                <!--<option value="CU">Cuba</option>-->
-                                <!--<option value="CW">Curaçao</option>-->
-                                <!--<option value="CY">Cyprus</option>-->
-                                <!--<option value="CZ">Czech Republic</option>-->
-                                <!--<option value="DK">Denmark</option>-->
-                                <!--<option value="DJ">Djibouti</option>-->
-                                <!--<option value="DM">Dominica</option>-->
-                                <!--<option value="DO">Dominican Republic</option>-->
-                                <!--<option value="EC">Ecuador</option>-->
-                                <!--<option value="EG">Egypt</option>-->
-                                <!--<option value="SV">El Salvador</option>-->
-                                <!--<option value="GQ">Equatorial Guinea</option>-->
-                                <!--<option value="ER">Eritrea</option>-->
-                                <!--<option value="EE">Estonia</option>-->
-                                <!--<option value="ET">Ethiopia</option>-->
-                                <!--<option value="FK">Falkland Islands (Malvinas)</option>-->
-                                <!--<option value="FO">Faroe Islands</option>-->
-                                <!--<option value="FJ">Fiji</option>-->
-                                <!--<option value="FI">Finland</option>-->
-                                <!--<option value="FR">France</option>-->
-                                <!--<option value="GF">French Guiana</option>-->
-                                <!--<option value="PF">French Polynesia</option>-->
-                                <!--<option value="TF">French Southern Territories</option>-->
-                                <!--<option value="GA">Gabon</option>-->
-                                <!--<option value="GM">Gambia</option>-->
-                                <!--<option value="GE">Georgia</option>-->
-                                <!--<option value="DE">Germany</option>-->
-                                <!--<option value="GH">Ghana</option>-->
-                                <!--<option value="GI">Gibraltar</option>-->
-                                <!--<option value="GR">Greece</option>-->
-                                <!--<option value="GL">Greenland</option>-->
-                                <!--<option value="GD">Grenada</option>-->
-                                <!--<option value="GP">Guadeloupe</option>-->
-                                <!--<option value="GU">Guam</option>-->
-                                <!--<option value="GT">Guatemala</option>-->
-                                <!--<option value="GG">Guernsey</option>-->
-                                <!--<option value="GN">Guinea</option>-->
-                                <!--<option value="GW">Guinea-Bissau</option>-->
-                                <!--<option value="GY">Guyana</option>-->
-                                <!--<option value="HT">Haiti</option>-->
-                                <!--<option value="HM">Heard Island and McDonald Islands</option>-->
-                                <!--<option value="VA">Holy See (Vatican City State)</option>-->
-                                <!--<option value="HN">Honduras</option>-->
-                                <!--<option value="HK">Hong Kong</option>-->
-                                <!--<option value="HU">Hungary</option>-->
-                                <!--<option value="IS">Iceland</option>-->
-                                <!--<option value="IN">India</option>-->
-                                <!--<option value="ID">Indonesia</option>-->
-                                <!--<option value="IR">Iran, Islamic Republic of</option>-->
-                                <!--<option value="IQ">Iraq</option>-->
-                                <!--<option value="IE">Ireland</option>-->
-                                <!--<option value="IM">Isle of Man</option>-->
-                                <!--<option value="IL">Israel</option>-->
-                                <!--<option value="IT">Italy</option>-->
-                                <!--<option value="JM">Jamaica</option>-->
-                                <!--<option value="JP">Japan</option>-->
-                                <!--<option value="JE">Jersey</option>-->
-                                <!--<option value="JO">Jordan</option>-->
-                                <!--<option value="KZ">Kazakhstan</option>-->
-                                <!--<option value="KE">Kenya</option>-->
-                                <!--<option value="KI">Kiribati</option>-->
-                                <!--<option value="KP">Korea, Democratic People's Republic of</option>-->
-                                <!--<option value="KR">Korea, Republic of</option>-->
-                                <!--<option value="KW">Kuwait</option>-->
-                                <!--<option value="KG">Kyrgyzstan</option>-->
-                                <!--<option value="LA">Lao People's Democratic Republic</option>-->
-                                <!--<option value="LV">Latvia</option>-->
-                                <!--<option value="LB">Lebanon</option>-->
-                                <!--<option value="LS">Lesotho</option>-->
-                                <!--<option value="LR">Liberia</option>-->
-                                <!--<option value="LY">Libya</option>-->
-                                <!--<option value="LI">Liechtenstein</option>-->
-                                <!--<option value="LT">Lithuania</option>-->
-                                <!--<option value="LU">Luxembourg</option>-->
-                                <!--<option value="MO">Macao</option>-->
-                                <!--<option value="MK">Macedonia, the former Yugoslav Republic of</option>-->
-                                <!--<option value="MG">Madagascar</option>-->
-                                <!--<option value="MW">Malawi</option>-->
-                                <!--<option value="MY">Malaysia</option>-->
-                                <!--<option value="MV">Maldives</option>-->
-                                <!--<option value="ML">Mali</option>-->
-                                <!--<option value="MT">Malta</option>-->
-                                <!--<option value="MH">Marshall Islands</option>-->
-                                <!--<option value="MQ">Martinique</option>-->
-                                <!--<option value="MR">Mauritania</option>-->
-                                <!--<option value="MU">Mauritius</option>-->
-                                <!--<option value="YT">Mayotte</option>-->
-                                <!--<option value="MX">Mexico</option>-->
-                                <!--<option value="FM">Micronesia, Federated States of</option>-->
-                                <!--<option value="MD">Moldova, Republic of</option>-->
-                                <!--<option value="MC">Monaco</option>-->
-                                <!--<option value="MN">Mongolia</option>-->
-                                <!--<option value="ME">Montenegro</option>-->
-                                <!--<option value="MS">Montserrat</option>-->
-                                <!--<option value="MA">Morocco</option>-->
-                                <!--<option value="MZ">Mozambique</option>-->
-                                <!--<option value="MM">Myanmar</option>-->
-                                <!--<option value="NA">Namibia</option>-->
-                                <!--<option value="NR">Nauru</option>-->
-                                <!--<option value="NP">Nepal</option>-->
-                                <!--<option value="NL">Netherlands</option>-->
-                                <!--<option value="NC">New Caledonia</option>-->
-                                <!--<option value="NZ">New Zealand</option>-->
-                                <!--<option value="NI">Nicaragua</option>-->
-                                <!--<option value="NE">Niger</option>-->
-                                <!--<option value="NG">Nigeria</option>-->
-                                <!--<option value="NU">Niue</option>-->
-                                <!--<option value="NF">Norfolk Island</option>-->
-                                <!--<option value="MP">Northern Mariana Islands</option>-->
-                                <!--<option value="NO">Norway</option>-->
-                                <!--<option value="OM">Oman</option>-->
-                                <!--<option value="PK">Pakistan</option>-->
-                                <!--<option value="PW">Palau</option>-->
-                                <!--<option value="PS">Palestinian Territory, Occupied</option>-->
-                                <!--<option value="PA">Panama</option>-->
-                                <!--<option value="PG">Papua New Guinea</option>-->
-                                <!--<option value="PY">Paraguay</option>-->
-                                <!--<option value="PE">Peru</option>-->
-                                <!--<option value="PH">Philippines</option>-->
-                                <!--<option value="PN">Pitcairn</option>-->
-                                <!--<option value="PL">Poland</option>-->
-                                <!--<option value="PT">Portugal</option>-->
-                                <!--<option value="PR">Puerto Rico</option>-->
-                                <!--<option value="QA">Qatar</option>-->
-                                <!--<option value="RE">Réunion</option>-->
-                                <!--<option value="RO">Romania</option>-->
-                                <!--<option value="RU">Russian Federation</option>-->
-                                <!--<option value="RW">Rwanda</option>-->
-                                <!--<option value="BL">Saint Barthélemy</option>-->
-                                <!--<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>-->
-                                <!--<option value="KN">Saint Kitts and Nevis</option>-->
-                                <!--<option value="LC">Saint Lucia</option>-->
-                                <!--<option value="MF">Saint Martin (French part)</option>-->
-                                <!--<option value="PM">Saint Pierre and Miquelon</option>-->
-                                <!--<option value="VC">Saint Vincent and the Grenadines</option>-->
-                                <!--<option value="WS">Samoa</option>-->
-                                <!--<option value="SM">San Marino</option>-->
-                                <!--<option value="ST">Sao Tome and Principe</option>-->
-                                <!--<option value="SA">Saudi Arabia</option>-->
-                                <!--<option value="SN">Senegal</option>-->
-                                <!--<option value="RS">Serbia</option>-->
-                                <!--<option value="SC">Seychelles</option>-->
-                                <!--<option value="SL">Sierra Leone</option>-->
-                                <!--<option value="SG">Singapore</option>-->
-                                <!--<option value="SX">Sint Maarten (Dutch part)</option>-->
-                                <!--<option value="SK">Slovakia</option>-->
-                                <!--<option value="SI">Slovenia</option>-->
-                                <!--<option value="SB">Solomon Islands</option>-->
-                                <!--<option value="SO">Somalia</option>-->
-                                <!--<option value="ZA">South Africa</option>-->
-                                <!--<option value="GS">South Georgia and the South Sandwich Islands</option>-->
-                                <!--<option value="SS">South Sudan</option>-->
-                                <!--<option value="ES">Spain</option>-->
-                                <!--<option value="LK">Sri Lanka</option>-->
-                                <!--<option value="SD">Sudan</option>-->
-                                <!--<option value="SR">Suriname</option>-->
-                                <!--<option value="SJ">Svalbard and Jan Mayen</option>-->
-                                <!--<option value="SZ">Swaziland</option>-->
-                                <!--<option value="SE">Sweden</option>-->
-                                <!--<option value="CH">Switzerland</option>-->
-                                <!--<option value="SY">Syrian Arab Republic</option>-->
-                                <!--<option value="TW">Taiwan, Province of China</option>-->
-                                <!--<option value="TJ">Tajikistan</option>-->
-                                <!--<option value="TZ">Tanzania, United Republic of</option>-->
-                                <!--<option value="TH">Thailand</option>-->
-                                <!--<option value="TL">Timor-Leste</option>-->
-                                <!--<option value="TG">Togo</option>-->
-                                <!--<option value="TK">Tokelau</option>-->
-                                <!--<option value="TO">Tonga</option>-->
-                                <!--<option value="TT">Trinidad and Tobago</option>-->
-                                <!--<option value="TN">Tunisia</option>-->
-                                <!--<option value="TR">Turkey</option>-->
-                                <!--<option value="TM">Turkmenistan</option>-->
-                                <!--<option value="TC">Turks and Caicos Islands</option>-->
-                                <!--<option value="TV">Tuvalu</option>-->
-                                <!--<option value="UG">Uganda</option>-->
-                                <!--<option value="UA">Ukraine</option>-->
-                                <!--<option value="AE">United Arab Emirates</option>-->
-                                <!--<option value="GB">United Kingdom</option>-->
-                                <!--<option value="US">United States</option>-->
-                                <!--<option value="UM">United States Minor Outlying Islands</option>-->
-                                <!--<option value="UY">Uruguay</option>-->
-                                <!--<option value="UZ">Uzbekistan</option>-->
-                                <!--<option value="VU">Vanuatu</option>-->
-                                <!--<option value="VE">Venezuela, Bolivarian Republic of</option>-->
-                                <!--<option value="VN">Viet Nam</option>-->
-                                <!--<option value="VG">Virgin Islands, British</option>-->
-                                <!--<option value="VI">Virgin Islands, U.S.</option>-->
-                                <!--<option value="WF">Wallis and Futuna</option>-->
-                                <!--<option value="EH">Western Sahara</option>-->
-                                <!--<option value="YE">Yemen</option>-->
-                                <!--<option value="ZM">Zambia</option>-->
-                                <!--<option value="ZW">Zimbabwe</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
+
 
                     <div class="uk-form-row">
                             {{form.country}}
                     </div>
+
+                    <div class="g-recaptcha" data-sitekey="6LdfpR4UAAAAAF-8q9ai3XQMA1x0TpuiqzKTW5bS"></div>
+
                     <div class="uk-form-row">
-                        <button type="submit" class="md-btn md-btn-large btn-custom-light">Subscribe</button>
-                        <!--
-                        <button type="button" class="md-btn md-btn-large btn-custom-light" data-uk-modal="{target:'#modal_header_footer'}">Subscribe</button>
-                        <div class="uk-modal" id="modal_header_footer">
-                            <div class="uk-modal-dialog">
-                                <div class="uk-modal-header">
-                                    <h3 class="uk-modal-title">Confirm Your Email</h3>
-                                </div>
-                                <hr class="uk-grid-divider">
-                                <p>Almost finished...<br/>
-                                We need to confirm your email address.<br/>
-                                To complete the subscription process, please click the link in the email we just sent you</p>
-                                <div class="uk-modal-footer uk-text-right">
-                                    <button type="button" class="md-btn md-btn-large btn-custom-light uk-modal-close">Ok</button>
-                                </div>
-                            </div>
-                        </div>
-                        -->
+                        <button type="submit" id="submitBtn" onclick="login_captcha()" class="md-btn md-btn-large btn-custom-light">Subscribe</button>
+
                     </div>
                 </form>
             </div>
@@ -707,7 +387,31 @@
           sel.style.color = "#000";              
         }
     </script>
-
+    <script>
+        var checkCaptcha;
+        function login_captcha()
+        {
+            console.log("captcha");
+            $("#demo").empty();
+            //checkCaptcha = true;
+            if(checkCaptcha) {
+                $("#submitBtn").click();
+            }
+            else {
+                console.log("insert captcha");
+                $("#demo").append('<div class="parsley-errors-list filled" id="parsley-id-5"><span class="parsley-type">Insert Captcha to Send.</span></div>');
+            }
+        }
+        function recaptchaCallback() {
+            //alert("callback working");
+            checkCaptcha = true;
+            $("#demo").empty();
+        };
+        $(document).ready(function(){
+            var checkCaptcha = false;
+            $("#demo").empty();
+        });
+    </script>
     <!-- google web fonts -->
     <script>
         WebFontConfig = {

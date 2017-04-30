@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'ride',
     'places',
     'schedule_ride',
+    'feed',
 ]
 
 ######################### AUTH ############################
@@ -167,3 +168,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 
+# RECAPTCHA STUFF
+GOOGLE_RECAPTCHA_SITE_KEY = "6LdfpR4UAAAAAF-8q9ai3XQMA1x0TpuiqzKTW5bS"
+GOOGLE_RECAPTCHA_SECRET_KEY = "6LdfpR4UAAAAANnijkUcWr2J9q1JXPCljJQG3wOP"

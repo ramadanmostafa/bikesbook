@@ -155,6 +155,8 @@ class Subscriber(models.Model):
     email = models.EmailField(unique=True)
     country = CountryField(blank_label='(select country)')
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+    confirmed = models.BooleanField(default=False)
+    token = models.CharField(null=True, max_length=120)
 
     def __unicode__(self):
         return self.full_name
