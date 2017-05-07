@@ -4,8 +4,9 @@ from django.db import models
 from custom_user.models import CustomUser
 from garage.models import Bicycle, Motorcycle
 
-# Create your models here.
+
 class Ride(models.Model):
+
     user = models.ForeignKey(CustomUser)
     start_lat = models.FloatField()
     start_lng = models.FloatField()

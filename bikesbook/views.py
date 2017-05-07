@@ -132,8 +132,6 @@ def subscribe(request):
                     }
                 )
             )
-
-            print activation_url
             ctx = {
                 'name': full_name,
                 'flag': True,
